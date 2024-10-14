@@ -1,0 +1,8 @@
+#about-section {
+    background-color: var(--bg);
+    color: black;
+}
+
+#about-p {
+    text-align: center;
+}

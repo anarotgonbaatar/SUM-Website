@@ -1,0 +1,97 @@
+* {
+    margin: 0; padding: 0;
+    transition: all 0.4s ease;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+:root {
+    /* SUM Colors */
+    --crimson: #9B1626;
+    --crimson-alt: #74000d;
+    --gold: #FFB923;
+    --gold-alt: #ffe09d;
+    --bg: white;
+    --text: black;
+}
+
+body {
+    margin: 0;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: var(--bg);
+    color: var(--text);
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    gap: 1rem;
+    padding: 3rem 1rem;   /* Top, right, bottom, left */
+
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.btn {
+    cursor: pointer;
+    padding: 1rem;
+    color: black;
+    background-color: var(--gold);
+    border: none;
+    border-radius: 0.25rem;
+}
+.btn:hover {
+    color: var(--crimson);
+    transform: scale(1.05);
+    box-shadow: 0 0 0.75rem var(--gold);
+}
+.btn:active {
+    color: white;
+    box-shadow: 0 0 1rem black;
+    transform: scale(1);
+}
+
+.portrait {
+    border: 0.25rem solid white;
+    border-radius: 0.75rem;
+}
+
+/* Icons */
+.icons {
+    display: flex;
+    flex-direction: row;
+    gap: 0.75rem;
+}
+
+.icon {
+    cursor: pointer;
+    width: 2rem;
+    height: auto;
+}
+.icon:hover {
+    transform: scale(1.1);
+}
+
+/* Sign up forms */
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+input {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--gold);
+    border-radius: 0.5rem;
+}
+input:hover {
+    box-shadow: 0 0 0.75rem var(--gold);
+}

@@ -1,0 +1,32 @@
+#home-section {
+    display: flex;
+    flex-direction: column;
+
+    background-color: var(--crimson);
+    color: white;
+}
+
+#logo {
+    max-width: 50%;
+    min-width: 20rem;
+    height: auto;
+}
+
+.signup-form {
+    padding: 1rem;
+}
+
+#home-signup-form-container {
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+    margin-bottom: -1rem;
+
+    background-color: var(--crimson-alt);
+    border-radius: 1rem;
+}
+#home-signup-form-container.show {
+    height: auto;
+    opacity: 1;
+    margin-bottom: 0;
+}

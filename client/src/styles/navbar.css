@@ -1,0 +1,33 @@
+#navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    padding: 0.5rem 0 0.5rem 0;
+
+    background-color: var(--gold);
+    color: var(--bg);
+}  
+
+.nav-btn {
+    cursor: pointer;
+    color: black;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    border-radius: 1rem;
+}
+.nav-btn:hover {
+    background-color: var(--crimson);
+    color: white;
+    border-radius: 0.5rem;
+}
+
+@media only screen and (max-width: 600px) {
+    .nav-btn:not(:nth-child(1)):not(:nth-last-child(1)) {
+        display: none;
+    }
+
+    #navbar {
+        padding: 0.5rem 1rem 0.5rem 1rem;
+        justify-content: space-between;
+    }
+}

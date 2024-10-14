@@ -1,0 +1,55 @@
+#stories-section {
+    background-color: var(--gold);
+    color: black;
+}
+
+.story-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+
+    max-width: 40rem;
+    width: 100%;
+    gap: 1rem;
+    padding: 0.5rem;
+
+    background-color: var(--gold-alt);
+    color: black;
+    border-radius: 1.25rem;
+}
+.story-container:hover {
+    transform: scale(1.025);
+}
+
+.story-portrait {
+    width: 25%;
+    height: auto;
+}
+
+.story-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.story-name {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.story-title {
+    font-size: 1rem;
+}
+
+.story-achievements {
+    margin-left: 2rem;
+    margin-top: 1rem;
+}
+
+.story-container .icon {
+    margin-top: 1rem;
+    color: black;
+}
+.story-container .icon:hover {
+    color: var(--crimson);
+}
