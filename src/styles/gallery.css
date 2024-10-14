@@ -14,11 +14,12 @@
 .gallery-tab-btn {
     cursor: pointer;
     background-color: transparent;
+
     border: 1px solid var(--crimson);
     border-bottom-color: transparent;
     border-right-color: transparent;
     border-top-left-radius: 1rem;
-    /* border-bottom-right-radius: 1rem; */
+    
     padding: 1rem;
     padding-bottom: 0.75rem;
 }
