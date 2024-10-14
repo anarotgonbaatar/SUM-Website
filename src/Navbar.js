@@ -4,7 +4,7 @@ import './styles/navbar.css'
 function Navbar() {
     return (
         <div className='' id='navbar'>
-            <button className='icon-btn nav-btn'>Home</button>
+            <button className='nav-btn'>Home</button>
             <button className='nav-btn'>About</button>
             <button className='nav-btn'>Stories</button>
             <button className='nav-btn'>Mission</button>
