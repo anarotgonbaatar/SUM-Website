@@ -28,9 +28,9 @@ function Home() {
             
             <span>Build World Class Business Skills While In College</span>
             
-            <a className='btn' id='sign-up-btn' type='button' onClick={ handleClick }>
+            <button className='btn' id='sign-up-btn' type='button' onClick={ handleClick }>
                 SUM (Sign Up, Mate!)
-            </a>
+            </button>
 
             <div id='home-signup-form-container' ref={ formRef }>
                 <form className='signup-form'>

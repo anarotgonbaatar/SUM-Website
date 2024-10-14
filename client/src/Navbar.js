@@ -1,19 +1,17 @@
 import React from 'react'
 import './styles/navbar.css'
-import { FaHouse } from "react-icons/fa6"
-import { IoMdHome } from "react-icons/io"
 
 function Navbar() {
     return (
         <div className='' id='navbar'>
-            <a className='icon-btn nav-btn'>Home</a>
-            <a className='nav-btn'>About</a>
-            <a className='nav-btn'>Stories</a>
-            <a className='nav-btn'>Mission</a>
-            <a className='nav-btn'>Gallery</a>
-            <a className='nav-btn'>Testimonials</a>
-            <a className='nav-btn'>Events</a>
-            <a className='nav-btn'>#beSUMone</a>
+            <button className='icon-btn nav-btn'>Home</button>
+            <button className='nav-btn'>About</button>
+            <button className='nav-btn'>Stories</button>
+            <button className='nav-btn'>Mission</button>
+            <button className='nav-btn'>Gallery</button>
+            <button className='nav-btn'>Testimonials</button>
+            <button className='nav-btn'>Events</button>
+            <button className='nav-btn'>#beSUMone</button>
         </div>
     )
 }

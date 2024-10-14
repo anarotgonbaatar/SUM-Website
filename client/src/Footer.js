@@ -5,7 +5,7 @@ import Logo from './images/pheonix-logo.png'
 function Footer() {
     return (
         <div className='section' id='footer-section'>
-            <img id='footer-logo' src={ Logo }></img>
+            <img id='footer-logo' src={ Logo } alt='SUM Logo'></img>
             
             <span className='section-title'>READY TO #beSUMone?</span>
 

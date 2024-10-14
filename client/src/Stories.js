@@ -1,7 +1,7 @@
 import React from 'react'
 import './styles/stories.css'
 
-import { FaEnvelope, FaEnvelopeSquare, FaInstagram, FaLinkedin } from 'react-icons/fa'
+import { FaEnvelopeSquare, FaInstagram, FaLinkedin } from 'react-icons/fa'
 
 import Boomer from './images/Boomer Baker.jpeg'
 import Alex from './images/Alex Munayyer.png'
@@ -14,7 +14,7 @@ function Stories() {
         <span className='section-title'>SUCCESS STORIES</span>
         
         <div className='story-container'>
-            <img src={ Boomer } className='portrait story-portrait'/>
+            <img src={ Boomer } className='portrait story-portrait' alt='Boomer Baker'/>
             <div className='story-details'>
                 <span className='story-name'>Boomer Baker</span>
                 <span className='story-title'>CEO of THINK66, BIOLETIC Technologies, AYLI</span>
@@ -31,7 +31,7 @@ function Stories() {
         </div>
 
         <div className='story-container'>
-            <img src={ Alex } className='portrait story-portrait'/>
+            <img src={ Alex } className='portrait story-portrait' alt='Alex Munayyer'/>
             <div className='story-details'>
                 <span className='story-name'>Alex Munayyer</span>
                 <span className='story-title'>CO-Founder of Hyperscale Media</span>
@@ -48,7 +48,7 @@ function Stories() {
         </div>
 
         <div className='story-container'>
-            <img src={ Gaury } className='portrait story-portrait'/>
+            <img src={ Gaury } className='portrait story-portrait' alt='Gaury Verma'/>
             <div className='story-details'>
                 <span className='story-name'>Gaury Verma</span>
                 <span className='story-title'>CEO of Gaury Verma Photography</span>
@@ -65,7 +65,7 @@ function Stories() {
         </div>
 
         <div className='story-container'>
-            <img src={ Sukhjinder } className='portrait story-portrait'/>
+            <img src={ Sukhjinder } className='portrait story-portrait' alt='Sukhjinder Singh'/>
             <div className='story-details'>
                 <span className='story-name'>Sukhjinder Singh</span>
                 <span className='story-title'>CEO of Yin.Social</span>
