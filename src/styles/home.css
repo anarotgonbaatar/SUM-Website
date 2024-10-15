@@ -1,6 +1,7 @@
 #home-section {
     display: flex;
     flex-direction: column;
+    padding-top: 6rem;
 
     background-color: var(--crimson);
     color: white;

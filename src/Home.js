@@ -43,8 +43,12 @@ function Home() {
             </div>
 
             <div className='icons'>
-                <FaInstagram className='icon'/>
-                <FaFacebookSquare className='icon'/>
+                <a href='https://www.instagram.com/sigmaupsilonmu/' target='_blank' rel='noopener noreferrer'>
+                    <FaInstagram className='icon' />
+                </a>
+                <a href='https://www.facebook.com/SigmaUpsilonMu' target='_blank' rel='noopener noreferrer'>
+                    <FaFacebookSquare className='icon' />
+                </a>
             </div>
 
         </div>

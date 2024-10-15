@@ -3,10 +3,16 @@
     flex-direction: row;
     justify-content: space-around;
 
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+
     padding: 0.5rem 0 0.5rem 0;
 
-    background-color: var(--gold);
-    color: var(--bg);
+    background-color: rgb(255, 185, 35, 0.25);
+    -webkit-backdrop-filter: blur(1rem);
+    backdrop-filter: blur(1rem);
 }  
 
 .nav-btn {

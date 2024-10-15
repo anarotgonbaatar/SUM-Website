@@ -11,7 +11,7 @@
     --crimson-alt: #74000d;
     --gold: #FFB923;
     --gold-alt: #ffe09d;
-    --bg: white;
+    --bg: black;
     --text: black;
 }
 
@@ -76,9 +76,11 @@ body {
     cursor: pointer;
     width: 2rem;
     height: auto;
+    color: white;
 }
 .icon:hover {
     transform: scale(1.1);
+    color: var(--gold);
 }
 
 /* Sign up forms */
