@@ -12,3 +12,19 @@
 #footer-section .section-title{
     margin-bottom: 0.5rem;
 }
+
+#footer-section input {
+    background-color: transparent;
+    color: white;
+}
+#footer-section input:focus {
+    background-color: var(--crimson);
+}
+
+#footer-csuf-logo {
+    width: 20rem;
+    background-color: var(--gold-alt);
+    margin-bottom: -0.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0rem 0 1rem var(--gold-alt);
+}

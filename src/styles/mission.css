@@ -2,3 +2,7 @@
     background-color: var(--crimson);
     color: white;
 }
+
+#mission-section p {
+    max-width: 40rem;
+}

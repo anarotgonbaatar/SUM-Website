@@ -3,6 +3,7 @@
     transition: all 0.4s ease;
     text-decoration: none;
     box-sizing: border-box;
+    font: inherit;
 }
 
 :root {
@@ -74,8 +75,8 @@ body {
 
 .icon {
     cursor: pointer;
-    width: 2rem;
-    height: auto;
+    height: 2rem;
+    width: auto;
     color: white;
 }
 .icon:hover {
@@ -90,6 +91,7 @@ body {
     gap: 1rem;
 }
 input {
+    width: 15rem;
     padding: 0.5rem 1rem;
     border: 1px solid var(--gold);
     border-radius: 0.5rem;

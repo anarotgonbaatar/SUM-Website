@@ -11,24 +11,23 @@ const images = [
     { id: 6, src: `${process.env.PUBLIC_URL}/gallery-images/board/simran.png`, category: 'Board Members', alt: 'Simran Cheema | Chief of Staff' },
     { id: 7, src: `${process.env.PUBLIC_URL}/gallery-images/board/dan.png`, category: 'Board Members', alt: 'Dan England | Director of Operations' },
     { id: 8, src: `${process.env.PUBLIC_URL}/gallery-images/board/enrique.png`, category: 'Board Members', alt: 'Enrique Guerrero | Director of Finances' },
-    { id: 9, src: `${process.env.PUBLIC_URL}/gallery-images/board/shelby.png`, category: 'Board Members', alt: 'Shelby Cantu | Director of Pledges' },
-    { id: 10, src: `${process.env.PUBLIC_URL}/gallery-images/board/tom.png`, category: 'Board Members', alt: 'Tom Forrest | Director of Marketing???' },
+    { id: 9, src: `${process.env.PUBLIC_URL}/gallery-images/board/enrique.png`, category: 'Board Members', alt: 'Felix Zhu | Director of Actives' },
+    { id: 10, src: `${process.env.PUBLIC_URL}/gallery-images/board/enrique.png`, category: 'Board Members', alt: 'Frank Saldivar | Director of Alumni' },
+    { id: 11, src: `${process.env.PUBLIC_URL}/gallery-images/board/shelby.png`, category: 'Board Members', alt: 'Shelby Cantu | Director of Pledges' },
+    { id: 12, src: `${process.env.PUBLIC_URL}/gallery-images/board/tom.png`, category: 'Board Members', alt: 'Tom Forrest | Director of Marketing and Internal Affairs' },
     // Banquets
-    { id: 0, src: `${process.env.PUBLIC_URL}/gallery-images/banquet1.jpg`, category: 'Banquets', alt: 'Caption here' },
-    { id: 0, src: `${process.env.PUBLIC_URL}/gallery-images/banquet2.jpg`, category: 'Banquets', alt: 'Caption here' },
-    { id: 0, src: `${process.env.PUBLIC_URL}/gallery-images/girls.jpg`, category: 'Banquets', alt: 'Caption here' },
-    { id: 0, src: `${process.env.PUBLIC_URL}/gallery-images/girls2.jpg`, category: 'Banquets', alt: 'Caption here' },
+    { id: 13, src: `${process.env.PUBLIC_URL}/gallery-images/banquet1.jpg`, category: 'Banquets', alt: 'Caption here' },
+    { id: 14, src: `${process.env.PUBLIC_URL}/gallery-images/banquet2.jpg`, category: 'Banquets', alt: 'Caption here' },
+    { id: 15, src: `${process.env.PUBLIC_URL}/gallery-images/girls.jpg`, category: 'Banquets', alt: 'Caption here' },
+    { id: 16, src: `${process.env.PUBLIC_URL}/gallery-images/girls2.jpg`, category: 'Banquets', alt: 'Caption here' },
     // Retreats
-    { id: 0, src: `${process.env.PUBLIC_URL}/gallery-images/ericka-simran2.jpg`, category: 'Retreats', alt: 'Caption here' },
-    { id: 0, src: `${process.env.PUBLIC_URL}/gallery-images/anthony-coke.jpg`, category: 'Retreats', alt: 'Caption here' },
-    { id: 0, src: `${process.env.PUBLIC_URL}/gallery-images/banquet1.jpg`, category: 'Retreats', alt: 'Caption here' },
-    { id: 0, src: `${process.env.PUBLIC_URL}/gallery-images/banquet2.jpg`, category: 'Retreats', alt: 'Caption here' },
+    { id: 18, src: `${process.env.PUBLIC_URL}/gallery-images/anthony-coke.jpg`, category: 'Retreats', alt: 'Caption here' },
 ]
 
 function Gallery() {
     const [ selectedCategory, setSelectedCategory ] = useState( 'Board Members' );
 
-    const categories = [ 'Board Members', 'Banquets', 'Retreats' ]
+    const categories = [ 'Board Members', 'Banquets', 'Retreats', 'Bid Dinner' ]
 
     const handleCategoryChange = ( category ) => {
         setSelectedCategory( category )

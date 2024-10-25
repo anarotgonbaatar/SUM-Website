@@ -1,8 +1,29 @@
 #about-section {
     background-color: white;
     color: black;
+    gap: 0;
 }
 
-#about-p {
+.about-header{
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+#motto {
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+
+.about-p {
     text-align: center;
+    max-width: 50rem;
+}
+
+#about-section ul{
+    text-align: left;
+    max-width: 30rem;
+    margin-left: 2rem;
+    margin-right: 1rem;
 }

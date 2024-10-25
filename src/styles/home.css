@@ -31,3 +31,11 @@
     opacity: 1;
     margin-bottom: 0;
 }
+
+#home-section input {
+    background-color: transparent;
+    color: var(--gold);
+}
+#home-section input:focus {
+    background-color: black;
+}
