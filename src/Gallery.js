@@ -3,18 +3,18 @@ import './styles/gallery.css'
 
 const images = [
     // Board Members
-    { id: 1, src: `${process.env.PUBLIC_URL}/gallery-images/board/board.png`, category: 'Board Members', alt: 'The Board of Fall 2024' },
-    { id: 2, src: `${process.env.PUBLIC_URL}/gallery-images/board/board-titans.png`, category: 'Board Members', alt: 'The Board of Fall 2024' },
-    { id: 3, src: `${process.env.PUBLIC_URL}/gallery-images/board/rayline.png`, category: 'Board Members', alt: 'Rayline Perez | President' },
-    { id: 4, src: `${process.env.PUBLIC_URL}/gallery-images/board/genaro.png`, category: 'Board Members', alt: 'Genaro Lopez | Vice President' },
-    { id: 5, src: `${process.env.PUBLIC_URL}/gallery-images/board/ericka.png`, category: 'Board Members', alt: 'Ericka Martinez | Chief of Staff' },
-    { id: 6, src: `${process.env.PUBLIC_URL}/gallery-images/board/simran.png`, category: 'Board Members', alt: 'Simran Cheema | Chief of Staff' },
-    { id: 7, src: `${process.env.PUBLIC_URL}/gallery-images/board/dan.png`, category: 'Board Members', alt: 'Dan England | Director of Operations' },
-    { id: 8, src: `${process.env.PUBLIC_URL}/gallery-images/board/enrique.png`, category: 'Board Members', alt: 'Enrique Guerrero | Director of Finances' },
-    { id: 9, src: `${process.env.PUBLIC_URL}/gallery-images/board/enrique.png`, category: 'Board Members', alt: 'Felix Zhu | Director of Actives' },
-    { id: 10, src: `${process.env.PUBLIC_URL}/gallery-images/board/enrique.png`, category: 'Board Members', alt: 'Frank Saldivar | Director of Alumni' },
-    { id: 11, src: `${process.env.PUBLIC_URL}/gallery-images/board/shelby.png`, category: 'Board Members', alt: 'Shelby Cantu | Director of Pledges' },
-    { id: 12, src: `${process.env.PUBLIC_URL}/gallery-images/board/tom.png`, category: 'Board Members', alt: 'Tom Forrest | Director of Marketing and Internal Affairs' },
+    { id: 1, src: `${process.env.PUBLIC_URL}/gallery-images/board/board.webp`, category: 'Board Members', alt: 'The Board of Fall 2024' },
+    { id: 2, src: `${process.env.PUBLIC_URL}/gallery-images/board/board-titans.webp`, category: 'Board Members', alt: 'The Board of Fall 2024' },
+    { id: 3, src: `${process.env.PUBLIC_URL}/gallery-images/board/rayline.webp`, category: 'Board Members', alt: 'Rayline Perez | President' },
+    { id: 4, src: `${process.env.PUBLIC_URL}/gallery-images/board/genaro.webp`, category: 'Board Members', alt: 'Genaro Lopez | Vice President' },
+    { id: 5, src: `${process.env.PUBLIC_URL}/gallery-images/board/ericka.webp`, category: 'Board Members', alt: 'Ericka Martinez | Chief of Staff' },
+    { id: 6, src: `${process.env.PUBLIC_URL}/gallery-images/board/simran.webp`, category: 'Board Members', alt: 'Simran Cheema | Chief of Staff' },
+    { id: 7, src: `${process.env.PUBLIC_URL}/gallery-images/board/dan.webp`, category: 'Board Members', alt: 'Dan England | Director of Operations' },
+    { id: 8, src: `${process.env.PUBLIC_URL}/gallery-images/board/enrique.webp`, category: 'Board Members', alt: 'Enrique Guerrero | Director of Finances' },
+    { id: 9, src: `${process.env.PUBLIC_URL}/gallery-images/board/felix.jpg`, category: 'Board Members', alt: 'Felix Zhu | Director of Actives' },
+    { id: 10, src: `${process.env.PUBLIC_URL}/gallery-images/board/frank.jpg`, category: 'Board Members', alt: 'Francisco Saldivar | Director of Alumni' },
+    { id: 11, src: `${process.env.PUBLIC_URL}/gallery-images/board/shelby.webp`, category: 'Board Members', alt: 'Shelby Cantu | Director of Pledges' },
+    { id: 12, src: `${process.env.PUBLIC_URL}/gallery-images/board/tom.webp`, category: 'Board Members', alt: 'Tom Forrest | Director of Marketing and Internal Affairs' },
     // Banquets
     { id: 13, src: `${process.env.PUBLIC_URL}/gallery-images/banquet1.jpg`, category: 'Banquets', alt: 'Caption here' },
     { id: 14, src: `${process.env.PUBLIC_URL}/gallery-images/banquet2.jpg`, category: 'Banquets', alt: 'Caption here' },
@@ -55,7 +55,12 @@ function Gallery() {
                     .filter( ( image ) => image.category === selectedCategory)
                     .map( ( image ) => (
                         <div className={ `image-frame ${ isLandscape( image.src ) ? 'landscape' : 'portrait' }` } key={ image.id }>
-                            <img src={ image.src } alt={ image.alt } className='gallery-image'/>
+                            <img
+                                src={ image.src }
+                                alt={ image.alt }
+                                className='gallery-image'
+                                loading="lazy"
+                            />
                             <span className='image-caption'>{ image.alt }</span>
                         </div>
                     ))}
