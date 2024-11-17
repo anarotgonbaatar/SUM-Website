@@ -31,31 +31,23 @@ function Home() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         
-        const formData = {
-          firstName: 'John',
-          lastName: 'Doe',
-          email: 'john@example.com',
-          phoneNumber: '1234567890',
-          referredBy: 'Friend'
-        };
-      
+        const form = document.querySelector( "form" );
+        const formDatabase = new FormData( form );
+
         try {
-            const response = await fetch('https://script.google.com/macros/s/AKfycbxVy_yqlOGCWTBgmrdSFT37-3wXC8iCB4gAbzzd_aYYED7F4AUCbn1VkrpuFU08Y9KRiQ/exec', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify( formData ),
-            });
-        
-            if ( !response.ok ) {
-                throw new Error( 'Network response was not ok' );
-            }
-        
-            alert( 'Form submitted successfully!' );
-        } catch (error) {
-            console.error( 'Error:', error );
-            alert( 'There was an error submitting the form.' );
+            const response = await fetch(
+                "https://script.google.com/macros/s/AKfycbx0_L-j-2o5KJq8B3dxc13zrwoova6EG6JFBYNhxuBvGuueIVm4MlS1N8EZHxXyNivrcQ/exec",
+                {
+                    method: "POST",
+                    body: formDatabase,
+                }
+            )
+            
+            const data = await response.text()
+            console.log( "Submitted successfully:", data )
+
+        } catch ( error ) {
+            console.error( "Error submitting:", error )
         }
     };
 
@@ -72,21 +64,12 @@ function Home() {
 
             <div id='home-signup-form-container' ref={ formRef }>
                 <form className='signup-form' onSubmit={ handleSubmit }>
-                    <input type='text' placeholder='First Name' required value={ formData.firstName }
-                        onChange={ (e) => setFormData( { ...formData, firstName: e.target.value } ) }
-                    />
-                    <input type='text' placeholder='Last Name' required value={ formData.lastName }
-                        onChange={ (e) => setFormData( { ...formData, lastName: e.target.value } ) }
-                    />
-                    <input type='email' placeholder='Email' required value={ formData.email }
-                        onChange={ (e) => setFormData( { ...formData, email: e.target.value } ) }
-                    />
-                    <input type='tel' placeholder='Phone Number' required value={ formData.phoneNumber }
-                        onChange={ (e) => setFormData( { ...formData, phoneNumber: e.target.value } ) }
-                    />
-                    <input type='text' placeholder='Referred By' required value={ formData.referredBy }
-                        onChange={ (e) => setFormData( { ...formData, referredBy: e.target.value } ) }
-                    />
+                    <input name='FirstName' type='text' placeholder='First Name' required/>
+                    <input name='LastName' type='text' placeholder='Last Name' required/>
+                    <input name='Email' type='email' placeholder='Email' required/>
+                    <input name='Number' type='tel' placeholder='Phone Number' required/>
+                    <input name='ReferredBy' type='text' placeholder='Referred By' required/>
+
                     <button type='submit' className='btn'>Submit</button>
                 </form>
             </div>
