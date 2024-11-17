@@ -4,16 +4,12 @@ import Logo from './images/pheonix-logo.png'
 import { FaFacebookSquare, FaInstagram } from 'react-icons/fa'
 
 function Home() {
-    const [ showForm, setShowForm ] = useState( false )
-    const formRef = useRef( null )
-    const [ formData, setFormData ] = useState({
-        firstName: '',
-        lastName: '',
-        email: '',
-        phoneNumber: '',
-        referredBy: ''
-    })
+    const [ showForm, setShowForm ] = useState( false );
+    const [ buttonText, setButtonText ] = useState( 'SUBMIT' );
+    const [ buttonDisabled, setButtonDisabled ] = useState( false );
+    const formRef = useRef( null );
 
+    // Shows and hides the submission form
     const handleClick = () => {
         const form = formRef.current
         if ( !showForm ) {
@@ -34,6 +30,9 @@ function Home() {
         const form = document.querySelector( "form" );
         const formDatabase = new FormData( form );
 
+        setButtonDisabled( true )
+        setButtonText( 'Submitting...' )
+
         try {
             const response = await fetch(
                 "https://script.google.com/macros/s/AKfycbx0_L-j-2o5KJq8B3dxc13zrwoova6EG6JFBYNhxuBvGuueIVm4MlS1N8EZHxXyNivrcQ/exec",
@@ -43,11 +42,18 @@ function Home() {
                 }
             )
             
-            const data = await response.text()
-            console.log( "Submitted successfully:", data )
+            if ( response.ok ) {
+                setButtonText( 'Submission Successful!' )
+                const data = await response.text()
+                console.log( "Submitted successfully:", data )
+            } else {
+                throw new Error( 'Submission failed' )
+            }
 
         } catch ( error ) {
             console.error( "Error submitting:", error )
+            setButtonText( 'Error, Try Again' )
+            setButtonDisabled( false )
         }
     };
 
@@ -70,7 +76,7 @@ function Home() {
                     <input name='Number' type='tel' placeholder='Phone Number' required/>
                     <input name='ReferredBy' type='text' placeholder='Referred By' required/>
 
-                    <button type='submit' className='btn'>Submit</button>
+                    <button type='submit' className='btn' disabled={ buttonDisabled }>{ buttonText }</button>
                 </form>
             </div>
 

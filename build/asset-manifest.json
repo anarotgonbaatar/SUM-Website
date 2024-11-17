@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/SUM-Website/static/css/main.73920ae5.css",
-    "main.js": "/SUM-Website/static/js/main.f3cdeaf7.js",
+    "main.js": "/SUM-Website/static/js/main.c78eb043.js",
     "static/media/Erick Ojeda.jpeg": "/SUM-Website/static/media/Erick Ojeda.23681186c7918f4ac686.jpeg",
     "static/media/Alex Munayyer.png": "/SUM-Website/static/media/Alex Munayyer.95c0fb92292638baeba4.png",
     "static/media/Sukhjinder Singh.png": "/SUM-Website/static/media/Sukhjinder Singh.96021028924e88cf372e.png",
@@ -11,10 +11,10 @@
     "static/media/Daniel Cazares.jpg": "/SUM-Website/static/media/Daniel Cazares.726eb21a102a142d08c6.jpg",
     "index.html": "/SUM-Website/index.html",
     "main.73920ae5.css.map": "/SUM-Website/static/css/main.73920ae5.css.map",
-    "main.f3cdeaf7.js.map": "/SUM-Website/static/js/main.f3cdeaf7.js.map"
+    "main.c78eb043.js.map": "/SUM-Website/static/js/main.c78eb043.js.map"
   },
   "entrypoints": [
     "static/css/main.73920ae5.css",
-    "static/js/main.f3cdeaf7.js"
+    "static/js/main.c78eb043.js"
   ]
 }

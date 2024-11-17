@@ -1,8 +1,45 @@
-import React from 'react'
+import React, { useState, useRef } from 'react'
 import './styles/footer.css'
 import Logo from './images/pheonix-logo.png'
 
 function Footer() {
+    const formRef = useRef( null )
+    const [ buttonText, setButtonText ] = useState( 'SUBMIT' );
+    const [ buttonDisabled, setButtonDisabled ] = useState( false );
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        
+        const form = formRef.current;
+        const formDatabase = new FormData( form );
+
+        setButtonDisabled( true )
+        setButtonText( 'Submitting...' )
+
+        try {
+            const response = await fetch(
+                "https://script.google.com/macros/s/AKfycbx0_L-j-2o5KJq8B3dxc13zrwoova6EG6JFBYNhxuBvGuueIVm4MlS1N8EZHxXyNivrcQ/exec",
+                {
+                    method: "POST",
+                    body: formDatabase,
+                }
+            )
+            
+            if ( response.ok ) {
+                setButtonText( 'Submission Successful!' )
+                const data = await response.text()
+                console.log( "Submitted successfully:", data )
+            } else {
+                throw new Error( 'Submission failed' )
+            }
+
+        } catch ( error ) {
+            console.error( "Error submitting:", error )
+            setButtonText( 'Error, Try Again' )
+            setButtonDisabled( false )
+        }
+    };
+
     return (
         <div className='section' id='footer-section'>
             <img id='footer-logo' src={ Logo } alt='SUM Logo'></img>
@@ -10,13 +47,14 @@ function Footer() {
             <span className='section-title'>READY TO #beSUMone?</span>
 
             <div id='footer-signup-form-container'>
-                <form className='signup-form'>
-                    <input type='text' placeholder='First Name' required />
-                    <input type='text' placeholder='Last Name' required />
-                    <input type='email' placeholder='Email' required />
-                    <input type='tel' placeholder='Phone Number' required />
-                    <input type='text' placeholder='Referred By' required />
-                    <button type='submit' className='btn'>JOIN TODAY</button>
+                <form className='signup-form' onSubmit={ handleSubmit } ref={ formRef }>
+                    <input name='FirstName' type='text' placeholder='First Name' required/>
+                    <input name='LastName' type='text' placeholder='Last Name' required/>
+                    <input name='Email' type='email' placeholder='Email' required/>
+                    <input name='Number' type='tel' placeholder='Phone Number' required/>
+                    <input name='ReferredBy' type='text' placeholder='Referred By' required/>
+
+                    <button type='submit' className='btn' disabled={ buttonDisabled }>{ buttonText }</button>
                 </form>
             </div>
 
