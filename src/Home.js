@@ -1,9 +1,31 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import './styles/home.css'
 import Logo from './images/pheonix-logo.png'
 import { FaFacebookSquare, FaInstagram } from 'react-icons/fa'
 
 function Home() {
+    // Log visit
+    const loggedVisit = useRef( false );
+    useEffect( () => {
+        if ( !loggedVisit.current ) {
+            fetch(
+                "https://script.google.com/macros/s/AKfycbx6JTX6HnHyUW_lMmOlpNBKUoCFU7bWZDiU5QamSLn0O5kNwI20I-DlUo1pnMd-hbiL6g/exec",
+                {
+                    method: "POST",
+                    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                    body: new URLSearchParams({
+                        eventType: "visit",
+                    }),
+                }
+            )
+            .then( ( response ) => response.text() )
+            .then( ( data ) => console.log( "Visit logged:", data ) )
+            .then( ( error ) => console.log( "Visit error:", error ) )
+
+            loggedVisit.current = true
+        }
+    }, [])
+
     const [ showForm, setShowForm ] = useState( false );
     const [ buttonText, setButtonText ] = useState( 'SUBMIT' );
     const [ buttonDisabled, setButtonDisabled ] = useState( false );
@@ -29,13 +51,14 @@ function Home() {
         
         const form = document.querySelector( "form" );
         const formDatabase = new FormData( form );
+        formDatabase.append( "eventType", "submission" )    // add eventType to the formDatabase
 
         setButtonDisabled( true )
         setButtonText( 'Submitting...' )
 
         try {
             const response = await fetch(
-                "https://script.google.com/macros/s/AKfycbx0_L-j-2o5KJq8B3dxc13zrwoova6EG6JFBYNhxuBvGuueIVm4MlS1N8EZHxXyNivrcQ/exec",
+                "https://script.google.com/macros/s/AKfycbx6JTX6HnHyUW_lMmOlpNBKUoCFU7bWZDiU5QamSLn0O5kNwI20I-DlUo1pnMd-hbiL6g/exec",
                 {
                     method: "POST",
                     body: formDatabase,

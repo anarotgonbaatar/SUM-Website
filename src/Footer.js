@@ -12,13 +12,14 @@ function Footer() {
         
         const form = formRef.current;
         const formDatabase = new FormData( form );
+        formDatabase.append( "eventType", "submission" )    // add eventType to the formDatabase
 
         setButtonDisabled( true )
         setButtonText( 'Submitting...' )
 
         try {
             const response = await fetch(
-                "https://script.google.com/macros/s/AKfycbx0_L-j-2o5KJq8B3dxc13zrwoova6EG6JFBYNhxuBvGuueIVm4MlS1N8EZHxXyNivrcQ/exec",
+                "https://script.google.com/macros/s/AKfycbx6JTX6HnHyUW_lMmOlpNBKUoCFU7bWZDiU5QamSLn0O5kNwI20I-DlUo1pnMd-hbiL6g/exec",
                 {
                     method: "POST",
                     body: formDatabase,
