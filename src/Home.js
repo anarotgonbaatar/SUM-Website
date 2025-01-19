@@ -14,14 +14,11 @@ function Home() {
                     method: "POST",
                     headers: { "Content-Type": "application/x-www-form-urlencoded" },
                     body: new URLSearchParams({
-                        eventType: "visit",
+                        // eventType: "visit",
                     }),
                 }
             )
-            .then( ( response ) => response.text() )
-            .then( ( data ) => console.log( "Visit logged:", data ) )
-            .then( ( error ) => console.log( "Visit error:", error ) )
-
+           
             loggedVisit.current = true
         }
     }, [])

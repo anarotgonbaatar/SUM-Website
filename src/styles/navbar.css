@@ -10,7 +10,7 @@
 
     padding: 0.5rem 0 0.5rem 0;
 
-    background-color: rgb(255, 185, 35, 0.25);
+    background-color: transparent;
     -webkit-backdrop-filter: blur(1rem);
     backdrop-filter: blur(1rem);
 }  
@@ -28,6 +28,7 @@
     background-color: var(--crimson);
     color: white;
     border-radius: 0.5rem;
+    box-shadow: 0 0 1rem var(--crimson);
 }
 
 @media only screen and (max-width: 600px) {

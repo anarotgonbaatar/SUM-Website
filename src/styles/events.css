@@ -13,6 +13,7 @@
 }
 .event-box:hover {
     transform: scale(1.025);
+    box-shadow: 0 0 1rem var(--crimson-alt);
 }
 
 .event-date {

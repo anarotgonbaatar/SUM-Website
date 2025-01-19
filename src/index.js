@@ -20,7 +20,7 @@ root.render(
         <Stories />
         <Mission />
         <Gallery />
-        <Testimonials />
+        {/* <Testimonials /> */}
         <Events />
         <Footer />
     </React.StrictMode>

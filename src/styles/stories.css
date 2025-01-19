@@ -20,10 +20,20 @@
 }
 .story-container:hover {
     transform: scale(1.025);
+    box-shadow: 0 0 1rem var(--gold-alt);
+}
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 33%;
+    max-width: 33%;
 }
 
 .story-portrait {
-    width: 33%;
+    width: 100%;
     height: auto;
 }
 

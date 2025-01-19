@@ -23,7 +23,7 @@ function Navbar() {
             <button className='nav-btn' onClick={() => scrollToSection( 'stories-section' )}>Stories</button>
             <button className='nav-btn' onClick={() => scrollToSection( 'mission-section' )}>Mission</button>
             <button className='nav-btn' onClick={() => scrollToSection( 'gallery-section' )}>Gallery</button>
-            <button className='nav-btn' onClick={() => scrollToSection( 'testimonials-section' )}>Testimonials</button>
+            {/* <button className='nav-btn' onClick={() => scrollToSection( 'testimonials-section' )}>Testimonials</button> */}
             <button className='nav-btn' onClick={() => scrollToSection( 'events-section' )}>Events</button>
             <button className='nav-btn' onClick={() => scrollToSection( 'footer-section' )}>#beSUMone</button>
         </div>

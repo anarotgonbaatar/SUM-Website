@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './styles/gallery.css'
 
 const images = [
@@ -16,16 +16,40 @@ const images = [
     { id: 11, src: `${process.env.PUBLIC_URL}/gallery-images/board/shelby.webp`, category: 'Board Members', alt: 'Shelby Cantu | Director of Pledges' },
     { id: 12, src: `${process.env.PUBLIC_URL}/gallery-images/board/tom.webp`, category: 'Board Members', alt: 'Tom Forrest | Director of Marketing and Internal Affairs' },
     // Banquets
-    { id: 13, src: `${process.env.PUBLIC_URL}/gallery-images/banquet1.jpg`, category: 'Banquets', alt: 'Caption here' },
-    { id: 14, src: `${process.env.PUBLIC_URL}/gallery-images/banquet2.jpg`, category: 'Banquets', alt: 'Caption here' },
-    { id: 15, src: `${process.env.PUBLIC_URL}/gallery-images/girls.jpg`, category: 'Banquets', alt: 'Caption here' },
-    { id: 16, src: `${process.env.PUBLIC_URL}/gallery-images/girls2.jpg`, category: 'Banquets', alt: 'Caption here' },
+    { id: 13, src: `${process.env.PUBLIC_URL}/gallery-images/banquet/banquet1.jpg`, category: 'Banquets', alt: 'Spring 2023' },
+    { id: 14, src: `${process.env.PUBLIC_URL}/gallery-images/banquet/banquet2.jpg`, category: 'Banquets', alt: 'Spring 2023' },
+    { id: 15, src: `${process.env.PUBLIC_URL}/gallery-images/banquet/girls.jpg`, category: 'Banquets', alt: 'Fall 2024' },
+    { id: 16, src: `${process.env.PUBLIC_URL}/gallery-images/banquet/girls2.jpg`, category: 'Banquets', alt: 'Fall 2024' },
+    { id: 17, src: `${process.env.PUBLIC_URL}/gallery-images/banquet/ericka-simran2.jpg`, category: 'Banquets', alt: 'Chief of Staffs' },
+    { id: 18, src: `${process.env.PUBLIC_URL}/gallery-images/banquet/presidents.jpg`, category: 'Banquets', alt: 'Presidents' },
+    { id: 19, src: `${process.env.PUBLIC_URL}/gallery-images/banquet/couples.jpg`, category: 'Banquets', alt: '<3>' },
+    { id: 20, src: `${process.env.PUBLIC_URL}/gallery-images/banquet/los-maestros.jpg`, category: 'Banquets', alt: 'Los Maestros' },
     // Retreats
-    { id: 18, src: `${process.env.PUBLIC_URL}/gallery-images/anthony-coke.jpg`, category: 'Retreats', alt: 'Caption here' },
+    { id: 21, src: `${process.env.PUBLIC_URL}/gallery-images/retreat/Friendsgiving Fall 2023.JPG`, category: 'Retreats', alt: 'Friendsgiving Fall 2023' },
+    { id: 22, src: `${process.env.PUBLIC_URL}/gallery-images/retreat/Fall 2023.jpg`, category: 'Retreats', alt: 'Fall 2023' },
+    { id: 23, src: `${process.env.PUBLIC_URL}/gallery-images/retreat/Family Olympics Spring 2024.jpg`, category: 'Retreats', alt: 'Family Olympics Spring 2024' },
+    // Bid Dinners
+    { id: 24, src: `${process.env.PUBLIC_URL}/gallery-images/bid dinner/Dark Horses.JPG`, category: 'Bid Dinner', alt: 'Dark Horses Fall 2023' },
 ]
 
 function Gallery() {
     const [ selectedCategory, setSelectedCategory ] = useState( 'Board Members' );
+    const [ imageOrients, setImageOrients ] = useState({})   // Store image orientations
+
+    useEffect( () => {
+        // Preload images and get orientations
+        const getImageOrients = async () => {
+            const orients = {}
+            for ( const image of images ) {
+                const img = new Image()
+                img.src = image.src
+                await img.decode()  // Ensure image is fully loaded
+                orients[ image.id ] = img.naturalWidth > img.naturalHeight ? 'landscape' : 'portrait'
+            }
+            setImageOrients( orients )
+        }
+        getImageOrients()
+    }, [])
 
     const categories = [ 'Board Members', 'Banquets', 'Retreats', 'Bid Dinner' ]
 
@@ -41,7 +65,7 @@ function Gallery() {
                 { categories.map( ( category ) => (
                     <button
                         key={ category }
-                        className={ `gallery-tab-btn ${ selectedCategory === category ? 'active' : ''}` }
+                        className={ `gallery-tab-btn ${ selectedCategory === category ? 'active' : '' }` }
                         onClick={ () => handleCategoryChange( category ) }
                     >
                         { category }
@@ -52,9 +76,12 @@ function Gallery() {
             {/* Images */}
             <div id='gallery'>
                 { images
-                    .filter( ( image ) => image.category === selectedCategory)
+                    .filter( ( image ) => image.category === selectedCategory )
                     .map( ( image ) => (
-                        <div className={ `image-frame ${ isLandscape( image.src ) ? 'landscape' : 'portrait' }` } key={ image.id }>
+                        <div
+                            className={ `image-frame ${ imageOrients[ image.id ] || '' }` }
+                            key={ image.id }
+                        >
                             <img
                                 src={ image.src }
                                 alt={ image.alt }
@@ -67,12 +94,6 @@ function Gallery() {
             </div>
         </div>
     )
-
-    function isLandscape( src ) {
-        const img = new Image()
-        img.src = src
-        return img.naturalWidth > img.naturalHeight     // True for landscape, false for portrait
-    }
 }
 
 export default Gallery
