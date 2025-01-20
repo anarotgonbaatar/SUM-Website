@@ -1,7 +1,8 @@
 import React from 'react'
 import './styles/stories.css'
 
-import { FaEnvelopeSquare, FaInstagram, FaLinkedin, FaCamera } from 'react-icons/fa'
+import { FaInstagram, FaCamera } from 'react-icons/fa'
+// import { FaEnvelopeSquare, FaLinkedin } from 'react-icons/fa'
 
 import Boomer from './images/Boomer Baker.jpeg'
 import Erick from './images/Erick Ojeda.jpeg'

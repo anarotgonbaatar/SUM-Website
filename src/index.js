@@ -7,7 +7,7 @@ import About from './About';
 import Stories from './Stories';
 import Mission from './Mission';
 import Gallery from './Gallery';
-import Testimonials from './Testimonials';
+// import Testimonials from './Testimonials';
 import Events from './Events';
 import Footer from './Footer';
 

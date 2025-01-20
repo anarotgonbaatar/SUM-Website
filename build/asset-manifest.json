@@ -1,20 +1,17 @@
 {
   "files": {
-    "main.css": "/SUM-Website/static/css/main.73920ae5.css",
-    "main.js": "/SUM-Website/static/js/main.07597e47.js",
+    "main.css": "/SUM-Website/static/css/main.0dec2331.css",
+    "main.js": "/SUM-Website/static/js/main.280c776f.js",
     "static/media/Erick Ojeda.jpeg": "/SUM-Website/static/media/Erick Ojeda.23681186c7918f4ac686.jpeg",
-    "static/media/Alex Munayyer.png": "/SUM-Website/static/media/Alex Munayyer.95c0fb92292638baeba4.png",
-    "static/media/Sukhjinder Singh.png": "/SUM-Website/static/media/Sukhjinder Singh.96021028924e88cf372e.png",
-    "static/media/Gaury Verma.png": "/SUM-Website/static/media/Gaury Verma.d738806b69208777c167.png",
     "static/media/Boomer Baker.jpeg": "/SUM-Website/static/media/Boomer Baker.287b41fda100c5fb2f6e.jpeg",
     "static/media/pheonix-logo.png": "/SUM-Website/static/media/pheonix-logo.a5677a2fbe6547ff2e4f.png",
     "static/media/Daniel Cazares.jpg": "/SUM-Website/static/media/Daniel Cazares.726eb21a102a142d08c6.jpg",
     "index.html": "/SUM-Website/index.html",
-    "main.73920ae5.css.map": "/SUM-Website/static/css/main.73920ae5.css.map",
-    "main.07597e47.js.map": "/SUM-Website/static/js/main.07597e47.js.map"
+    "main.0dec2331.css.map": "/SUM-Website/static/css/main.0dec2331.css.map",
+    "main.280c776f.js.map": "/SUM-Website/static/js/main.280c776f.js.map"
   },
   "entrypoints": [
-    "static/css/main.73920ae5.css",
-    "static/js/main.07597e47.js"
+    "static/css/main.0dec2331.css",
+    "static/js/main.280c776f.js"
   ]
 }
