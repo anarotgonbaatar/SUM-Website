@@ -49,19 +49,6 @@ function Footer() {
 
             <div id='footer-signup-form-container'>
                 {/* GHL form integration */}
-                import React from 'react';
-import './styles/footer.css';
-import Logo from './images/pheonix-logo.png';
-
-function Footer() {
-    return (
-        <div className='section' id='footer-section'>
-            <img id='footer-logo' src={Logo} alt='SUM Logo'></img>
-            
-            <span className='section-title'>READY TO #beSUMone?</span>
-
-            <div id='footer-signup-form-container'>
-                {/* GHL Form Integration */}
                 <iframe
                     src="https://api.leadconnectorhq.com/widget/form/8LcR1Onlve8XsPTwA5OQ"
                     style={{ width: '100%', height: '100%', border: 'none', borderRadius: '3px' }}
