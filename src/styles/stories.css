@@ -30,6 +30,11 @@
     align-items: center;
     min-width: 33%;
     max-width: 33%;
+
+    background-color: white;
+    border-radius: 0.75rem;
+    padding-bottom: 0.5rem;
+    box-shadow: 0 0 0.5rem var(--gold);
 }
 
 .story-portrait {
@@ -64,8 +69,8 @@
 
 .story-container .icon {
     margin-top: 1rem;
-    color: black;
+    color: var(--crimson);
 }
 .story-container .icon:hover {
-    color: var(--crimson);
+    color: white;
 }
