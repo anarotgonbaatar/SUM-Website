@@ -48,6 +48,40 @@ function Footer() {
             <span className='section-title'>READY TO #beSUMone?</span>
 
             <div id='footer-signup-form-container'>
+                {/* GHL form integration */}
+                import React from 'react';
+import './styles/footer.css';
+import Logo from './images/pheonix-logo.png';
+
+function Footer() {
+    return (
+        <div className='section' id='footer-section'>
+            <img id='footer-logo' src={Logo} alt='SUM Logo'></img>
+            
+            <span className='section-title'>READY TO #beSUMone?</span>
+
+            <div id='footer-signup-form-container'>
+                {/* GHL Form Integration */}
+                <iframe
+                    src="https://api.leadconnectorhq.com/widget/form/8LcR1Onlve8XsPTwA5OQ"
+                    style={{ width: '100%', height: '100%', border: 'none', borderRadius: '3px' }}
+                    id="inline-8LcR1Onlve8XsPTwA5OQ"
+                    data-layout="{'id':'INLINE'}"
+                    data-trigger-type="alwaysShow"
+                    data-trigger-value=""
+                    data-activation-type="alwaysActivated"
+                    data-activation-value=""
+                    data-deactivation-type="neverDeactivate"
+                    data-deactivation-value=""
+                    data-form-name="General Recruitment Form"
+                    data-height="621"
+                    data-layout-iframe-id="inline-8LcR1Onlve8XsPTwA5OQ"
+                    data-form-id="8LcR1Onlve8XsPTwA5OQ"
+                    title="General Recruitment Form"
+                ></iframe>
+                <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+                
+                {/* Google form */}
                 <form className='signup-form' onSubmit={ handleSubmit } ref={ formRef }>
                     <input name='FirstName' type='text' placeholder='First Name' required/>
                     <input name='LastName' type='text' placeholder='Last Name' required/>
