@@ -15,7 +15,7 @@ const images = [
     { id: 10, src: `${process.env.PUBLIC_URL}/gallery-images/board/anar.jpg`, category: 'Board Members', alt: 'Anar Otgonbaatar | Director of Alumni' },
     { id: 11, src: `${process.env.PUBLIC_URL}/gallery-images/board/marcel.jpg`, category: 'Board Members', alt: 'Marcel Marable | Director of Pledges' },
     { id: 12, src: `${process.env.PUBLIC_URL}/gallery-images/board/manveer.jpg`, category: 'Board Members', alt: 'Manveer Kaur Cheema | Director of Marketing' },
-    { id: 13, src: `${process.env.PUBLIC_URL}/gallery-images/board/tom.webp`, category: 'Board Members', alt: 'Arik Lieu | Director of BICC' },
+    { id: 13, src: `${process.env.PUBLIC_URL}/gallery-images/board/arik.jpg`, category: 'Board Members', alt: 'Arik Lieu | Director of BICC' },
     // Banquets
     { id: 14, src: `${process.env.PUBLIC_URL}/gallery-images/banquet/banquet1.jpg`, category: 'Banquets', alt: 'Spring 2023' },
     { id: 15, src: `${process.env.PUBLIC_URL}/gallery-images/banquet/banquet2.jpg`, category: 'Banquets', alt: 'Spring 2023' },
