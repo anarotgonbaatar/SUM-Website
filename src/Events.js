@@ -16,7 +16,7 @@ function Events() {
 
                 <div className='event-details'>
                     <span className='event-name'>Info Session #1</span>
-                    <span className='event-description'>Learn more about Sigma Upsilon Mu.</span>
+                    <span className='event-description'>Learn more about Sigma Upsilon Mu</span>
                     <span className='event-time'>6:15 PM @ the TSU</span>
                 </div>
             </div>

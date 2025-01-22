@@ -17,8 +17,7 @@
 
     border: 1px solid var(--crimson);
     border-bottom-color: transparent;
-    border-right-color: transparent;
-    border-top-left-radius: 1rem;
+    border-radius: 0.5rem 0.5rem 0rem 0rem;
     
     padding: 1rem;
     padding-bottom: 0.75rem;
@@ -28,10 +27,11 @@
 }
 .gallery-tab-btn.active {
     border: 1px solid var(--crimson);
-    border-radius: 1rem 1rem 0rem 0rem;
+    border-radius: 0.5rem 0.5rem 0rem 0rem;
     padding-bottom: 1.5rem;
     background-color: var(--crimson);
     color: var(--gold);
+    box-shadow: 0 0 1rem gray;
 }
 
 #gallery {
@@ -44,17 +44,7 @@
     gap: 1rem;
 
     background-color: var(--crimson);
-    border-radius: 2rem;
-    box-shadow: 0 0 0.5rem var(--crimson);
-}
-
-.gallery-image {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-
-    border: 0.25rem solid var(--gold-alt);
-    border-radius: 0.75rem;
+    border-radius: 1.75rem;
 }
 
 .image-frame {
@@ -63,18 +53,25 @@
     flex-direction: column;
     align-items: center;
     overflow: hidden;
-
-    /* height: min-content; */
     
     background-color: var(--gold);
 
     border: 0.25rem solid var(--gold);
-    border-radius: 1rem;
+    border-radius: 0.75rem;
 
 }
 .image-frame:hover {
     transform: scale(1.025);
     box-shadow: 0 0 1rem var(--gold);
+}
+
+.gallery-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+
+    border: 0.25rem solid var(--gold-alt);
+    border-radius: 0.5rem;
 }
 
 .image-caption {

@@ -65,7 +65,7 @@ function Stories() {
                     <li className='story-achievement'>Mayor of Wilmington, CA</li>
                     <li className='story-achievement'>CEO of OMGee PIX! LLC, a community-oriented business supporting local nonprofits and events.</li>
                     <li className='story-achievement'>Created the Wilmington California Information Network, connecting residents with businesses, nonprofits, and local resources.</li>
-                    <li className='story-achievement'>Veteran of the Year</li>
+                    {/* <li className='story-achievement'>Veteran of the Year</li> */}
                 </ul>
                 <div className='icons'>
                     <a href='https://omgeepix.com/'><FaCamera className='icon'/></a>

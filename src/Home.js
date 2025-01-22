@@ -24,8 +24,8 @@ function Home() {
     }, [])
 
     const [ showForm, setShowForm ] = useState( false );
-    const [ buttonText, setButtonText ] = useState( 'SUBMIT' );
-    const [ buttonDisabled, setButtonDisabled ] = useState( false );
+    // const [ buttonText, setButtonText ] = useState( 'SUBMIT' );
+    // const [ buttonDisabled, setButtonDisabled ] = useState( false );
     const formRef = useRef( null );
 
     // Shows and hides the submission form
@@ -43,39 +43,39 @@ function Home() {
         setShowForm( !showForm )
     }
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+    // const handleSubmit = async (e) => {
+    //     e.preventDefault();
         
-        const form = document.querySelector( "form" );
-        const formDatabase = new FormData( form );
-        formDatabase.append( "eventType", "submission" )    // add eventType to the formDatabase
+    //     const form = document.querySelector( "form" );
+    //     const formDatabase = new FormData( form );
+    //     formDatabase.append( "eventType", "submission" )    // add eventType to the formDatabase
 
-        setButtonDisabled( true )
-        setButtonText( 'Submitting...' )
+    //     setButtonDisabled( true )
+    //     setButtonText( 'Submitting...' )
 
-        try {
-            const response = await fetch(
-                "https://script.google.com/macros/s/AKfycbx6JTX6HnHyUW_lMmOlpNBKUoCFU7bWZDiU5QamSLn0O5kNwI20I-DlUo1pnMd-hbiL6g/exec",
-                {
-                    method: "POST",
-                    body: formDatabase,
-                }
-            )
+    //     try {
+    //         const response = await fetch(
+    //             "https://script.google.com/macros/s/AKfycbx6JTX6HnHyUW_lMmOlpNBKUoCFU7bWZDiU5QamSLn0O5kNwI20I-DlUo1pnMd-hbiL6g/exec",
+    //             {
+    //                 method: "POST",
+    //                 body: formDatabase,
+    //             }
+    //         )
             
-            if ( response.ok ) {
-                setButtonText( 'Submission Successful!' )
-                const data = await response.text()
-                console.log( "Submitted successfully:", data )
-            } else {
-                throw new Error( 'Submission failed' )
-            }
+    //         if ( response.ok ) {
+    //             setButtonText( 'Submission Successful!' )
+    //             const data = await response.text()
+    //             console.log( "Submitted successfully:", data )
+    //         } else {
+    //             throw new Error( 'Submission failed' )
+    //         }
 
-        } catch ( error ) {
-            console.error( "Error submitting:", error )
-            setButtonText( 'Error, Try Again' )
-            setButtonDisabled( false )
-        }
-    };
+    //     } catch ( error ) {
+    //         console.error( "Error submitting:", error )
+    //         setButtonText( 'Error, Try Again' )
+    //         setButtonDisabled( false )
+    //     }
+    // };
 
     return (
         <div className='section' id='home-section'>
@@ -89,6 +89,29 @@ function Home() {
             </button>
 
             <div id='home-signup-form-container' ref={ formRef }>
+                {/* GHL form integration */}
+                <iframe
+                    src="https://api.leadconnectorhq.com/widget/form/8LcR1Onlve8XsPTwA5OQ"
+                    style={{ width: '100%', height: '38.75rem', border: 'none', borderRadius: '1rem'}}
+                    id="inline-8LcR1Onlve8XsPTwA5OQ"
+                    data-layout="{'id':'INLINE'}"
+                    data-trigger-type="alwaysShow"
+                    data-trigger-value=""
+                    data-activation-type="alwaysActivated"
+                    data-activation-value=""
+                    data-deactivation-type="neverDeactivate"
+                    data-deactivation-value=""
+                    data-form-name="General Recruitment Form"
+                    data-height="621"
+                    data-layout-iframe-id="inline-8LcR1Onlve8XsPTwA5OQ"
+                    data-form-id="8LcR1Onlve8XsPTwA5OQ"
+                    title="General Recruitment Form"
+                ></iframe>
+                <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+            </div>
+
+            {/* Google Form */}
+            {/* <div id='home-signup-form-container' ref={ formRef }>
                 <form className='signup-form' onSubmit={ handleSubmit }>
                     <input name='FirstName' type='text' placeholder='First Name' required/>
                     <input name='LastName' type='text' placeholder='Last Name' required/>
@@ -98,7 +121,7 @@ function Home() {
 
                     <button type='submit' className='btn' disabled={ buttonDisabled }>{ buttonText }</button>
                 </form>
-            </div>
+            </div> */}
 
             <div className='icons'>
                 <a href='https://www.instagram.com/sigmaupsilonmu/' target='_blank' rel='noopener noreferrer'>

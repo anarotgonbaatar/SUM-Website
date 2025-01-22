@@ -1,45 +1,47 @@
-import React, { useState, useRef } from 'react'
+import React from 'react'
+// import { useState, useRef } from 'react'
 import './styles/footer.css'
 import Logo from './images/pheonix-logo.png'
 
 function Footer() {
-    const formRef = useRef( null )
-    const [ buttonText, setButtonText ] = useState( 'SUBMIT' );
-    const [ buttonDisabled, setButtonDisabled ] = useState( false );
+    // For google api form
+    // const formRef = useRef( null )
+    // const [ buttonText, setButtonText ] = useState( 'SUBMIT' );
+    // const [ buttonDisabled, setButtonDisabled ] = useState( false );
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+    // const handleSubmit = async (e) => {
+    //     e.preventDefault();
         
-        const form = formRef.current;
-        const formDatabase = new FormData( form );
-        formDatabase.append( "eventType", "submission" )    // add eventType to the formDatabase
+    //     const form = formRef.current;
+    //     const formDatabase = new FormData( form );
+    //     formDatabase.append( "eventType", "submission" )    // add eventType to the formDatabase
 
-        setButtonDisabled( true )
-        setButtonText( 'Submitting...' )
+    //     setButtonDisabled( true )
+    //     setButtonText( 'Submitting...' )
 
-        try {
-            const response = await fetch(
-                "https://script.google.com/macros/s/AKfycbx6JTX6HnHyUW_lMmOlpNBKUoCFU7bWZDiU5QamSLn0O5kNwI20I-DlUo1pnMd-hbiL6g/exec",
-                {
-                    method: "POST",
-                    body: formDatabase,
-                }
-            )
+    //     try {
+    //         const response = await fetch(
+    //             "https://script.google.com/macros/s/AKfycbx6JTX6HnHyUW_lMmOlpNBKUoCFU7bWZDiU5QamSLn0O5kNwI20I-DlUo1pnMd-hbiL6g/exec",
+    //             {
+    //                 method: "POST",
+    //                 body: formDatabase,
+    //             }
+    //         )
             
-            if ( response.ok ) {
-                setButtonText( 'Submission Successful!' )
-                const data = await response.text()
-                console.log( "Submitted successfully:", data )
-            } else {
-                throw new Error( 'Submission failed' )
-            }
+    //         if ( response.ok ) {
+    //             setButtonText( 'Submission Successful!' )
+    //             const data = await response.text()
+    //             console.log( "Submitted successfully:", data )
+    //         } else {
+    //             throw new Error( 'Submission failed' )
+    //         }
 
-        } catch ( error ) {
-            console.error( "Error submitting:", error )
-            setButtonText( 'Error, Try Again' )
-            setButtonDisabled( false )
-        }
-    };
+    //     } catch ( error ) {
+    //         console.error( "Error submitting:", error )
+    //         setButtonText( 'Error, Try Again' )
+    //         setButtonDisabled( false )
+    //     }
+    // };
 
     return (
         <div className='section' id='footer-section'>
@@ -51,7 +53,7 @@ function Footer() {
                 {/* GHL form integration */}
                 <iframe
                     src="https://api.leadconnectorhq.com/widget/form/8LcR1Onlve8XsPTwA5OQ"
-                    style={{ width: '100%', height: '100%', border: 'none', borderRadius: '3px' }}
+                    style={{ width: '100%', height: '38.75rem', border: 'none', borderRadius: '1rem'}}
                     id="inline-8LcR1Onlve8XsPTwA5OQ"
                     data-layout="{'id':'INLINE'}"
                     data-trigger-type="alwaysShow"
@@ -69,7 +71,7 @@ function Footer() {
                 <script src="https://link.msgsndr.com/js/form_embed.js"></script>
                 
                 {/* Google form */}
-                <form className='signup-form' onSubmit={ handleSubmit } ref={ formRef }>
+                {/* <form className='signup-form' onSubmit={ handleSubmit } ref={ formRef }>
                     <input name='FirstName' type='text' placeholder='First Name' required/>
                     <input name='LastName' type='text' placeholder='Last Name' required/>
                     <input name='Email' type='email' placeholder='Email' required/>
@@ -77,7 +79,7 @@ function Footer() {
                     <input name='ReferredBy' type='text' placeholder='Referred By' required/>
 
                     <button type='submit' className='btn' disabled={ buttonDisabled }>{ buttonText }</button>
-                </form>
+                </form> */}
             </div>
 
             <img id='footer-csuf-logo' src={`${process.env.PUBLIC_URL}/CSUF.png`} alt="California State University Fullerton" />

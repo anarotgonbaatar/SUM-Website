@@ -14,6 +14,7 @@
     --gold-alt: #ffe09d;
     --bg: black;
     --text: black;
+    --glass: rgba(255, 255, 255, 0.3);
 }
 
 body {
@@ -62,7 +63,7 @@ body {
 
 .portrait {
     border: 0.25rem solid white;
-    border-radius: 0.75rem;
+    border-radius: 0.5rem;
 }
 
 /* Icons */

@@ -16,7 +16,7 @@
 
     background-color: var(--gold-alt);
     color: black;
-    border-radius: 1.25rem;
+    border-radius: 1rem;
 }
 .story-container:hover {
     transform: scale(1.025);
@@ -32,7 +32,7 @@
     max-width: 33%;
 
     background-color: white;
-    border-radius: 0.75rem;
+    border-radius: 0.5rem;
     padding-bottom: 0.5rem;
     box-shadow: 0 0 0.5rem var(--gold);
 }
