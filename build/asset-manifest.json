@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.ff591a02.css",
-    "main.js": "/static/js/main.d77c4973.js",
+    "main.css": "/static/css/main.f13600fb.css",
+    "main.js": "/static/js/main.a07297c8.js",
     "static/media/Erick Ojeda.jpeg": "/static/media/Erick Ojeda.23681186c7918f4ac686.jpeg",
     "static/media/Boomer Baker.jpeg": "/static/media/Boomer Baker.287b41fda100c5fb2f6e.jpeg",
     "static/media/pheonix-logo.png": "/static/media/pheonix-logo.a5677a2fbe6547ff2e4f.png",
     "static/media/Daniel Cazares.jpg": "/static/media/Daniel Cazares.726eb21a102a142d08c6.jpg",
     "index.html": "/index.html",
-    "main.ff591a02.css.map": "/static/css/main.ff591a02.css.map",
-    "main.d77c4973.js.map": "/static/js/main.d77c4973.js.map"
+    "main.f13600fb.css.map": "/static/css/main.f13600fb.css.map",
+    "main.a07297c8.js.map": "/static/js/main.a07297c8.js.map"
   },
   "entrypoints": [
-    "static/css/main.ff591a02.css",
-    "static/js/main.d77c4973.js"
+    "static/css/main.f13600fb.css",
+    "static/js/main.a07297c8.js"
   ]
 }

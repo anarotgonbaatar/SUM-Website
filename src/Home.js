@@ -92,8 +92,13 @@ function Home() {
                 {/* GHL form integration */}
                 <iframe
                     src="https://api.leadconnectorhq.com/widget/form/8LcR1Onlve8XsPTwA5OQ"
-                    style={{ width: '100%', height: '38.75rem', border: 'none', borderRadius: '1rem'}}
-                    id="inline-8LcR1Onlve8XsPTwA5OQ"
+                    style={{
+                        width: "100%",
+                        height: "34.1rem",
+                        border: "none",
+                        borderRadius: "0.5rem",
+                    }}
+                    id="inline-8LcR1Onlve8XsPTwA5OQ" 
                     data-layout="{'id':'INLINE'}"
                     data-trigger-type="alwaysShow"
                     data-trigger-value=""
@@ -102,11 +107,12 @@ function Home() {
                     data-deactivation-type="neverDeactivate"
                     data-deactivation-value=""
                     data-form-name="General Recruitment Form"
-                    data-height="621"
+                    data-height="538"
                     data-layout-iframe-id="inline-8LcR1Onlve8XsPTwA5OQ"
                     data-form-id="8LcR1Onlve8XsPTwA5OQ"
                     title="General Recruitment Form"
-                ></iframe>
+                        >
+                </iframe>
                 <script src="https://link.msgsndr.com/js/form_embed.js"></script>
             </div>
 

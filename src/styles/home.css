@@ -22,9 +22,6 @@
     opacity: 0;
     overflow: hidden;
     margin-bottom: -1rem;
-
-    background-color: var(--crimson-alt);
-    border-radius: 1rem;
 }
 #home-signup-form-container.show {
     height: auto;
