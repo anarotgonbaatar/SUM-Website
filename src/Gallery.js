@@ -9,7 +9,7 @@ const images = [
     { id: 4, src: `${process.env.PUBLIC_URL}/gallery-images/board/genaro.webp`, category: 'Board Members', alt: 'Genaro Lopez | Vice President' },
     { id: 5, src: `${process.env.PUBLIC_URL}/gallery-images/board/ericka.webp`, category: 'Board Members', alt: 'Ericka Martinez | Chief of Staff' },
     { id: 6, src: `${process.env.PUBLIC_URL}/gallery-images/board/simran.webp`, category: 'Board Members', alt: 'Simran Cheema | Chief of Staff' },
-    { id: 7, src: `${process.env.PUBLIC_URL}/gallery-images/board/dan.webp`, category: 'Board Members', alt: 'Dan England | Director of Operations' },
+    { id: 7, src: `${process.env.PUBLIC_URL}/gallery-images/board/klarissa.jpg`, category: 'Board Members', alt: 'Klarissa Gunter | Director of Operations' },
     { id: 8, src: `${process.env.PUBLIC_URL}/gallery-images/board/enrique.webp`, category: 'Board Members', alt: 'Enrique Guerrero | Director of Finances' },
     { id: 9, src: `${process.env.PUBLIC_URL}/gallery-images/board/elena.jpg`, category: 'Board Members', alt: 'Elena Vilchis | Director of Actives' },
     { id: 10, src: `${process.env.PUBLIC_URL}/gallery-images/board/anar.jpg`, category: 'Board Members', alt: 'Anar Otgonbaatar | Director of Alumni' },
