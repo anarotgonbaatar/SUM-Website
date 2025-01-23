@@ -16,6 +16,7 @@
     --text: black;
     --glass: rgba(255, 255, 255, 0.2);
     --crimson-glass: rgba(155, 22, 38, 0.9);
+    --shadow: rgba(0, 0, 0, 0.2);
 }
 
 body {
@@ -50,11 +51,13 @@ body {
     background-color: var(--gold);
     border: 3px solid var(--glass);
     border-radius: 0.25rem;
+    font-weight: bold;
+    box-shadow: 0 0 1rem var(--shadow);
 }
 .btn:hover {
     color: var(--crimson);
     transform: scale(1.05);
-    box-shadow: 0 0 0.75rem var(--gold);
+    box-shadow: 0 0 1rem var(--gold);
 }
 .btn:active {
     color: white;
@@ -72,16 +75,24 @@ body {
     display: flex;
     flex-direction: row;
     gap: 0.75rem;
+    background-color: white;
+    border-radius: 0.5rem;
+    padding: 0.25rem;
+    max-width: fit-content;
+    box-shadow: 0 0 1rem var(--glass);
+    border: 2px solid var(--gold);
+}
+a {
+    height: 2rem;
 }
 
 .icon {
     cursor: pointer;
     height: 2rem;
     width: auto;
-    color: white;
+    color: var(--crimson-alt);
 }
 .icon:hover {
-    color: var(--gold);
     transform: scale(1.1);
 }
 

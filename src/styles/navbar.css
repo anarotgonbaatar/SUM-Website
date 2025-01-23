@@ -12,7 +12,7 @@
     padding: 0.5rem 0 0.5rem 0;
 
     background-color: var(--crimson-glass);
-    border-bottom: 1px solid var(--glass);
+    border-bottom: 2px solid var(--glass);
 
     -webkit-backdrop-filter: blur(2rem);
     backdrop-filter: blur(2rem);
@@ -25,11 +25,11 @@
     border-radius: 0.25rem;
 
     background-color: transparent;
-    border: 1px solid var(--glass);
+    border: 2px solid var(--glass);
 }
 .nav-btn:hover {
     background-color: var(--glass);
-    transform: scale(1.1);
+    box-shadow: 0 0 0.5rem var(--shadow);
 }
 
 @media only screen and (max-width: 768px) {

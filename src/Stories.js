@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import './styles/stories.css'
+import './styles/stories copy.css'
 
 import { FaInstagram, FaCamera } from 'react-icons/fa'
 // import { FaEnvelopeSquare, FaLinkedin } from 'react-icons/fa'

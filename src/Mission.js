@@ -1,9 +1,14 @@
 import React from 'react'
 import './styles/mission.css'
+import Phoenix from './images/phoenix.png'
 
 function Mission() {
     return (
         <div className='section' id='mission-section'>
+
+            {/* Background Phoenix */}
+            <div className='background-phoenix' style={{backgroundImage: `url(${Phoenix})`}}></div>
+
             <span className='section-title'>OUR MISSION</span>
             <p>
                 We believe that human potential is limitless, never settling for a mediocre life, and that actions speak louder than words.

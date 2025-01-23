@@ -1,0 +1,165 @@
+/* Stories section */
+#stories-section {
+    background-color: var(--gold);
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Stories container */
+#stories-container {
+    display: grid;
+    gap: 1rem; /* Spacing between cards */
+    width: 100%;
+    max-width: 1200px; /* Limit container width on larger screens */
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+}
+
+/* Individual story card */
+.story-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    background-color: var(--gold-alt);
+    color: black;
+    border: 3px solid var(--glass);
+    border-radius: 0.75rem;
+    padding: 0.5rem;
+    gap: 0.5rem; /* Space between profile and details */
+    box-shadow: 0 0 1rem var(--shadow); /* Subtle shadow for depth */
+}
+
+/* Hover effect for cards */
+.story-container:hover {
+    transform: scale(1.01);
+    box-shadow: 0 0 1rem var(--gold-alt); /* Stronger shadow */
+}
+
+/* Profile/image frame */
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 45%;
+    max-width: 45%;
+    background-color: white;
+    border-radius: 0.25rem;
+    padding: 0.25rem;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Profile image */
+.story-portrait {
+    width: 100%; /* Ensure the image scales with the profile */
+    height: auto;
+    border: none;
+    border-radius: 0;
+}
+
+/* Story details */
+.story-details {
+    display: flex;
+    flex-direction: column;
+    padding-right: 0.5rem;
+    gap: 0.25rem; /* Spacing between text elements */
+    flex-grow: 1; /* Allow details to fill the remaining space */
+    overflow-y: auto; /* Enable scrolling for long content */
+    max-height: 12rem; /* Constrain height */
+}
+
+/* Custom Scrollbar */
+.story-details::-webkit-scrollbar {
+    width: 6px;
+}
+
+.story-details::-webkit-scrollbar-thumb {
+    background-color: var(--crimson);
+    border-radius: 3px;
+    cursor: pointer;
+}
+.story-details::-webkit-scrollbar-thumb:hover {
+    background-color: var(--gold);
+}
+
+.story-details::-webkit-scrollbar-track {
+    background-color: var(--shadow);
+}
+
+/* Story Name */
+.story-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Story Quote */
+.quote {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--crimson-alt); /* Slightly muted text for the quote */
+}
+
+/* Achievements List */
+.story-achievements {
+    margin-left: 1rem;
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+    text-align: start;
+}
+
+/* Icon Links */
+.story-container .icons {
+    margin: 0.25rem;
+}
+.story-container .icon {
+    padding: 0.25rem;
+}
+
+/* Call-to-Action Button */
+#stories-cta-btn {
+    background-color: var(--crimson);
+    color: white;
+}
+
+#stories-cta-btn:hover {
+    background-color: white;
+    color: var(--crimson);
+    box-shadow: 0 0 2rem white;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    #stories-container {
+        grid-template-columns: 1fr; /* Single column layout */
+    }
+
+    .story-container {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .profile {
+        width: 35%; /* Adjust profile size for smaller screens */
+    }
+
+    .story-details {
+        max-height: 10rem; /* Reduce details height on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .profile {
+        width: 50%; /* Full-width profile on very small screens */
+    }
+
+    .story-container {
+        flex-direction: row; /* Stack profile and details */
+        align-items: center;
+    }
+
+    .story-details {
+        max-height: none; /* Remove height constraint for stacked layout */
+    }
+}

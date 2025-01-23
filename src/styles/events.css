@@ -14,10 +14,13 @@
 .event-box {
     display: flex;
     flex-direction: row;
-    width: 24rem;
+    width: 100%;
+    overflow: hidden;
 
     background-color: var(--crimson-alt);
-    border-radius: 1rem;
+    border: 3px solid var(--glass);
+    border-radius: 0.75rem;
+    box-shadow: 0 0 1rem var(--shadow);
 }
 .event-box:hover {
     transform: scale(1.025);
@@ -35,7 +38,7 @@
     background-color: black;
 
     padding: 1rem;
-    border-radius: 1rem;
+    border-radius: 0rem;
 }
 .day {
     font-size: 2.5rem;
