@@ -3,10 +3,17 @@
     color: white;
 }
 
+#events-container{
+    display: grid;
+    gap: 1rem;
+    max-width: 100%;
+    grid-template-columns: repeat(2, minmax(300px, 1fr));
+    justify-items: center;
+}
+
 .event-box {
     display: flex;
     flex-direction: row;
-    margin: 0 1rem;
     width: 24rem;
 
     background-color: var(--crimson-alt);
@@ -23,7 +30,7 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    width: 8rem;
+    min-width: 8rem;
 
     background-color: black;
 
@@ -48,4 +55,10 @@
 }
 .event-name {
     font-size: 1.75rem;
+}
+
+@media (max-width: 768px) {
+    #events-container {
+        grid-template-columns: 1fr; /* Single column on smaller screens */
+    }
 }

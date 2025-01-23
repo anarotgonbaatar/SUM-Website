@@ -8,13 +8,14 @@
 
 :root {
     /* SUM Colors */
-    --crimson: #9B1626;
+    --crimson: rgb(155, 22, 38);
     --crimson-alt: #74000d;
     --gold: #FFB923;
     --gold-alt: #ffe09d;
     --bg: black;
     --text: black;
-    --glass: rgba(255, 255, 255, 0.3);
+    --glass: rgba(255, 255, 255, 0.2);
+    --crimson-glass: rgba(155, 22, 38, 0.9);
 }
 
 body {
@@ -39,7 +40,7 @@ body {
 
 .section-title {
     font-size: 2.5rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.25rem;
 }
 
 .btn {
@@ -47,7 +48,7 @@ body {
     padding: 1rem;
     color: black;
     background-color: var(--gold);
-    border: none;
+    border: 3px solid var(--glass);
     border-radius: 0.25rem;
 }
 .btn:hover {

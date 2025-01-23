@@ -1,7 +1,8 @@
 #navbar {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 0.5rem;
 
     position: fixed;
     top: 0;
@@ -10,28 +11,28 @@
 
     padding: 0.5rem 0 0.5rem 0;
 
-    background-color: transparent;
-    -webkit-backdrop-filter: blur(1rem);
-    backdrop-filter: blur(1rem);
+    background-color: var(--crimson-glass);
+    border-bottom: 1px solid var(--glass);
+
+    -webkit-backdrop-filter: blur(2rem);
+    backdrop-filter: blur(2rem);
 }  
 
 .nav-btn {
     cursor: pointer;
-    color: black;
+    color: white;
     padding: 0.5rem 1rem 0.5rem 1rem;
     border-radius: 0.25rem;
 
-    background-color: var(--glass);
-    border: none;
+    background-color: transparent;
+    border: 1px solid var(--glass);
 }
 .nav-btn:hover {
-    background-color: var(--crimson);
-    color: white;
-    border-radius: 0.5rem;
-    box-shadow: 0 0 1rem var(--crimson);
+    background-color: var(--glass);
+    transform: scale(1.1);
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 768px) {
     .nav-btn:not(:nth-child(1)):not(:nth-last-child(1)) {
         display: none;
     }

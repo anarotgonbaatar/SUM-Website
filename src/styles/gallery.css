@@ -58,7 +58,6 @@
 
     border: 0.25rem solid var(--gold);
     border-radius: 0.75rem;
-
 }
 .image-frame:hover {
     transform: scale(1.025);

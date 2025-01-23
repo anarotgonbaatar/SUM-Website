@@ -4,7 +4,8 @@
 }
 
 #footer-logo {
-    width: 30%;
+    max-width: 30%;
+    min-width: 20%;
     height: auto;
     margin-bottom: 1rem;
 }
@@ -23,8 +24,13 @@
 
 #footer-csuf-logo {
     width: 20rem;
-    background-color: var(--gold-alt);
+    background-color: white;
     margin-bottom: -0.5rem;
     border-radius: 0.5rem;
-    box-shadow: 0rem 0 1rem var(--gold-alt);
+}
+
+@media only screen and (max-width: 600px) {
+    #footer-logo {
+        max-width: 100%;
+    }
 }

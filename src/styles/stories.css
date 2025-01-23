@@ -3,6 +3,14 @@
     color: black;
 }
 
+#stories-container {
+    display: grid;
+    gap: 1rem;
+    max-width: 100%;
+    grid-template-columns: repeat(2, minmax(400px, 1fr));
+    justify-items: center;
+}
+
 .story-container {
     display: flex;
     flex-direction: row;
@@ -16,6 +24,7 @@
 
     background-color: var(--gold-alt);
     color: black;
+    border-top: 3px solid var(--glass);
     border-radius: 1rem;
 }
 .story-container:hover {
@@ -73,4 +82,16 @@
 }
 .story-container .icon:hover {
     color: white;
+}
+
+#stories-cta-btn {
+    background-color: white;
+    box-shadow: 0 0 2rem white;
+    border: 3px solid var(--gold-alt);
+}
+
+@media (max-width: 768px) {
+    #stories-container {
+        grid-template-columns: 1fr; /* Single column on smaller screens */
+    }
 }
