@@ -16,7 +16,7 @@ function About() {
             
             <div className='glass-card about-card'>
                 <span className='about-header'>Our Motto</span>
-                <span id='motto'>"Facta Non Verba" (Deeds, Not Words)</span>
+                <span id='motto'>"Facta Non Verba": Deeds, Not Words</span>
                 <p className='about-p'>This reflects our belief in taking action over words, transforming the lives of college students to help them reach their fullest potential.</p>
             </div>
             
