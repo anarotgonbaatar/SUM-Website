@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './styles/gallery.css'
+import { IoClose } from "react-icons/io5";
 
 const images = [
     // Board Members
@@ -37,6 +38,7 @@ const images = [
 function Gallery() {
     const [ selectedCategory, setSelectedCategory ] = useState( 'Board Members' );
     const [ imageOrients, setImageOrients ] = useState({})   // Store image orientations
+    const [ zoomedImage, setZoomedImage ] = useState( null )
 
     useEffect( () => {
         // Preload images and get orientations
@@ -57,6 +59,13 @@ function Gallery() {
 
     const handleCategoryChange = ( category ) => {
         setSelectedCategory( category )
+    }
+
+    const handleImageClick = ( image ) => {
+        setZoomedImage( image )
+    }
+    const closeZoom = () => {
+        setZoomedImage( null )
     }
 
     return (
@@ -83,6 +92,7 @@ function Gallery() {
                         <div
                             className={ `image-frame ${ imageOrients[ image.id ] || '' }` }
                             key={ image.id }
+                            onClick={ () => handleImageClick( image ) }
                         >
                             <img
                                 src={ image.src }
@@ -92,8 +102,25 @@ function Gallery() {
                             />
                             <span className='image-caption'>{ image.alt }</span>
                         </div>
-                    ))}
+                    ))
+                }
             </div>
+
+            {/* Zoom on images */}
+            { zoomedImage && (
+                <div className='zoom-modal' onClick={ closeZoom }>
+                    <div className='zoom-modal-content' onClick={ (e) => e.stopPropagation() }>
+                        <img
+                            src={ zoomedImage.src }
+                            alt={ zoomedImage.alt }
+                            className='zoomed-image'
+                        />
+                        <span className='close-modal-btn' onClick={ closeZoom }>
+                            <IoClose className='icon' id='close-btn'/>
+                        </span>
+                    </div>
+                </div>
+            )}
         </div>
     )
 }
