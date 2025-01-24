@@ -63,4 +63,5 @@
     padding: 1rem;
     border: 3px solid var(--glass);
     border-radius: 0.25rem;
+	box-shadow: 0 0 0.5rem white;
 }
