@@ -8,7 +8,7 @@
 
 :root {
     /* SUM Colors */
-    --crimson: rgb(155, 22, 38);
+    --crimson: #9b1626;
     --crimson-alt: #74000d;
     --gold: #FFB923;
     --gold-alt: #ffe09d;
@@ -51,7 +51,7 @@ body {
     background-color: var(--gold);
     border: 3px solid var(--glass);
     border-radius: 0.25rem;
-    font-weight: bold;
+    font-weight: 600;
     box-shadow: 0 0 1rem var(--shadow);
 }
 .btn:hover {
@@ -96,6 +96,19 @@ a {
     transform: scale(1.1);
 }
 
+.glass-card {
+    padding: 0.5rem;
+    -webkit-backdrop-filter: blur(3rem);
+    backdrop-filter: blur(3rem);
+    background-color: var(--glass);
+    border: 3px solid var(--glass);
+    border-radius: 0.5rem;
+}
+.glass-card:hover {
+    transform: scale(1.025);
+    box-shadow: 0 0 1rem var(--shadow);
+}
+
 /* Sign up forms */
 .signup-form {
     display: flex;
@@ -110,4 +123,20 @@ input {
 }
 input:hover {
     box-shadow: 0 0 0.75rem var(--gold);
+}
+
+/* Background phoenix logo */
+.background-phoenix {
+    position: absolute;
+    top: 1;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 150%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    
+    opacity: 0.25;
+    z-index: 0;
 }

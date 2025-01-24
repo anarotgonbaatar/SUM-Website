@@ -1,29 +1,66 @@
 #about-section {
-    background-color: white;
+    background: linear-gradient(to bottom, white, var(--gold));
     color: black;
-    gap: 0;
+    gap: 1rem;
+}
+
+#about-phoenix {
+    height: 120%;
+    opacity: 0.25;
+}
+
+.about-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    max-width: 100%;
+    width: 37rem;
 }
 
 .about-header{
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: 500;
-    margin-top: 1.5rem;
-    margin-bottom: 0.5rem;
+    color: var(--crimson-alt);
 }
 
 #motto {
     font-weight: bold;
-    font-size: 1.25rem;
+    font-size: 1.5rem;
+    padding: 0.75rem 1rem;
+    background-color: var(--crimson);
+    color: white;
+    border: 3px solid var(--glass);
+    border-radius: 0.25rem;
+    box-shadow: 0 0 2rem white;
+
+    z-index: 1;
 }
 
 .about-p {
     text-align: center;
-    max-width: 50rem;
+    max-width: 100%;
+    font-size: 1.1rem;
 }
 
 #about-section ul{
-    text-align: left;
-    max-width: 30rem;
+    text-align: center;
+    font-size: 1.1rem;
+    max-width: 100%;
     margin-left: 2rem;
     margin-right: 1rem;
+}
+
+#pillars {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 1rem;
+}
+
+.pillar {
+    background-color: var(--crimson);
+    color: white;
+    padding: 1rem;
+    border: 3px solid var(--glass);
+    border-radius: 0.25rem;
 }
