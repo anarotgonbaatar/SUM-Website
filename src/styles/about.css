@@ -5,8 +5,15 @@
 }
 
 #about-phoenix {
-    height: 120%;
-    opacity: 0.25;
+	position: absolute;
+    width: 100%;
+	height: 100%;
+    z-index: 0; /* Push behind the text content */
+    pointer-events: none; /* Prevent interaction with the SVG */
+}
+.background-phoenix {
+	fill: var(--crimson);
+	max-height: 100%;
 }
 
 .about-card {
@@ -64,4 +71,11 @@
     border: 3px solid var(--glass);
     border-radius: 0.25rem;
 	box-shadow: 0 0 0.5rem white;
+}
+
+@media only screen and (max-width: 768px) {
+    .background-phoenix {
+        min-height: 100%;
+		width: 300%;
+    }
 }

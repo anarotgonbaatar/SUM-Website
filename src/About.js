@@ -1,13 +1,16 @@
 import React from 'react'
 import './styles/about.css'
-import Phoenix from './images/phoenix-crimson.png'
+import { ReactComponent as Phoenix } from './images/SUM Phoenix SVG Logo.svg'
 
 function About() {
     return (
         <div className='section' id='about-section'>
 
             {/* Background Phoenix */}
-            <div className='background-phoenix' id='about-phoenix' style={{backgroundImage: `url(${Phoenix})`}}></div>
+            {/* <div className='background-phoenix' id='about-phoenix' style={{backgroundImage: `url(${Phoenix})`}}></div> */}
+			<div id='about-phoenix'>
+				<Phoenix className='background-phoenix'/>
+			</div>
             
             <span className='section-title'>ABOUT</span>
             <p className='about-p glass-card about-card'>
