@@ -7,7 +7,6 @@ function About() {
         <div className='section' id='about-section'>
 
             {/* Background Phoenix */}
-            {/* <div className='background-phoenix' id='about-phoenix' style={{backgroundImage: `url(${Phoenix})`}}></div> */}
 			<div id='about-phoenix'>
 				<Phoenix className='background-phoenix'/>
 			</div>
