@@ -2,8 +2,7 @@ import React, { useState } from 'react'
 import './styles/chatbot.css'
 import { ReactComponent as ChatbotIcon } from './images/SUM Phoenix SVG Logo.svg'
 import { FaArrowUp } from "react-icons/fa6"
-
-const axios = require('axios')
+import axios from 'axios'
 
 function Chatbot() {
 

@@ -1,3 +1,4 @@
+// server.js is not compatible with Netlify's functions. This is for separate servers.
 const express = require( 'express' )
 const axios = require('axios')
 const cors = require('cors')
