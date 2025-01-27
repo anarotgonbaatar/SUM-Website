@@ -17,9 +17,11 @@ function Chatbot() {
 		setUserInput('')
 		
 		try {
-			const response = await axios.post( "/.netlify/chat", {
-				message: userInput
-			} )
+			const response = await axios.post(
+				"/.netlify/functions/chat.js",
+				{ message: userInput },
+    			{ headers: { 'Content-Type': 'application/json' } },
+			)
 
 			setMessages([ ...newMessages, { sender: 'bot', text: response.data.reply } ])
 		} catch ( error ) {
