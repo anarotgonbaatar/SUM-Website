@@ -3,6 +3,8 @@ import './styles/chatbot.css'
 import { ReactComponent as ChatbotIcon } from './images/SUM Phoenix SVG Logo.svg'
 import { FaArrowUp } from "react-icons/fa6"
 
+const axios = require('axios')
+
 function Chatbot() {
 
 	const [ isOpen, setIsOpen ] = useState( false )
@@ -16,24 +18,27 @@ function Chatbot() {
 		setUserInput('')
 		
 		try {
-			const response = await fetch( '/api/chat', {
-				method: 'POST',
-				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify({ message: userInput }),
+			const response = await axios.post( "/.netlify/chat", {
+				message: userInput
 			} )
-			const data = await response.json()
-			setMessages([ ...newMessages, { sender: 'bot', text: data.reply } ])
+
+			setMessages([ ...newMessages, { sender: 'bot', text: response.data.reply } ])
 		} catch ( error ) {
+			console.error( 'Error sending message:', error )
 			setMessages([ ...newMessages, { sender: 'bot', text: 'Error getting response' } ])
 		}
 	}
 
 	return (
 		<div id='chat-window' className={ isOpen ? 'open' : 'closed' }>
+			{/* Phoenix profile section */}
+			{ isOpen && (
+				<span id='phoenix-profile'>Phoenix the chatbot | Powered by OpenAI gpt-4o-mini</span>
+			)}
+
 			{ isOpen && (
 				<div id='conversation'>
 					{/* Conversation here */}
-					<span>AI Chatbot coming soon...</span>
 					{ messages.map(( msg, idx ) => (
 						<div key={idx} className={ `message ${ msg.sender }` }>
 							{ msg.text }
@@ -43,13 +48,18 @@ function Chatbot() {
 			)}
 
 			{ isOpen && (
-				<div id='message-container'>
+				<div id='message-input-container'>
 					<input
 						id='message-input'
 						type='text'
 						value={ userInput }
 						onChange={ (e) => setUserInput( e.target.value ) }
 						placeholder='Ask questions about SUM'
+						onKeyDown={ (e) => {
+							if ( e.key === "Enter" ) {
+								sendMessage()
+							}
+						} }
 					/>
 					<button id='send-btn-container' onClick={ sendMessage }>
 						<FaArrowUp id='send-btn-icon'/>
