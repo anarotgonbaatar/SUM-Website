@@ -9,12 +9,15 @@ function Chatbot() {
 	const [ isOpen, setIsOpen ] = useState( false )
 	const [ messages, setMessages ] = useState([])
 	const [ userInput, setUserInput] = useState('')
+	const [ isTyping, setIsTyping ] = useState( false )
 
 	const sendMessage = async () => {
 		if ( !userInput.trim() ) return
 		const newMessages = [ ...messages, { sender: 'user', text: userInput } ]
 		setMessages( newMessages )
 		setUserInput('')
+		// Show Typing... message bubble
+		setIsTyping( true )
 		
 		try {
 			const response = await axios.post(
@@ -27,6 +30,9 @@ function Chatbot() {
 		} catch ( error ) {
 			console.error( 'Error sending message:', error )
 			setMessages([ ...newMessages, { sender: 'bot', text: 'Error getting response' } ])
+		} finally {
+			// Hide Typing... message bubble
+			setIsTyping( false )
 		}
 	}
 
@@ -45,6 +51,9 @@ function Chatbot() {
 							{ msg.text }
 						</div>
 					))}
+					{ isTyping && (
+						<div className='message'>Typing...</div>
+					)}
 				</div>
 			)}
 
