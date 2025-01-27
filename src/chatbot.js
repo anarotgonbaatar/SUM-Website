@@ -18,7 +18,7 @@ function Chatbot() {
 		
 		try {
 			const response = await axios.post(
-				"/.netlify/functions/chat.js",
+				"/.netlify/functions/chat",
 				{ message: userInput },
     			{ headers: { 'Content-Type': 'application/json' } },
 			)
