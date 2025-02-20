@@ -13,6 +13,7 @@
 	
 	width: calc(4.5rem - 2px);
 	height: calc(4.5rem - 2px);
+	max-height: calc( 100% - 5rem );
 
 	background-color: var(--shadow);
 	-webkit-backdrop-filter: blur(36px);
@@ -211,4 +212,10 @@
 		opacity: 0.9;
 		transform: translateY(0);
 	}
+}
+
+@media only screen and (max-width: 768px) {
+    #chat-window {
+		max-width: calc( 100% - 2rem );
+    }
 }

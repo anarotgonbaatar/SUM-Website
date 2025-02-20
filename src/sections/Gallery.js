@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import './styles/gallery.css'
+import '../styles/gallery.css'
 import { IoClose } from "react-icons/io5";
 
 const images = [

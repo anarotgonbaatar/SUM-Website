@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import './styles/stories.css'
+import '../styles/stories.css'
 
 import { FaInstagram, FaCamera } from 'react-icons/fa'
 // import { FaEnvelopeSquare, FaLinkedin } from 'react-icons/fa'
 
-import Boomer from './images/Boomer Baker.jpeg'
-import Erick from './images/Erick Ojeda.jpeg'
-import Daniel from './images/Daniel Cazares.jpg'
+import Boomer from '../images/Boomer Baker.jpeg'
+import Erick from '../images/Erick Ojeda.jpeg'
+import Daniel from '../images/Daniel Cazares.jpg'
 import { IoDiamond } from 'react-icons/io5'
 
 function Stories() {

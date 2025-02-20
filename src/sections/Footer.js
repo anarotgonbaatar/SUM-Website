@@ -1,7 +1,7 @@
 import React from 'react'
 // import { useState, useRef } from 'react'
-import './styles/footer.css'
-import Logo from './images/pheonix-logo.png'
+import '../styles/footer.css'
+import Logo from '../images/pheonix-logo.png'
 
 function Footer() {
     // For google api form

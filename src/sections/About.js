@@ -1,6 +1,6 @@
 import React from 'react'
-import './styles/about.css'
-import { ReactComponent as Phoenix } from './images/SUM Phoenix SVG Logo.svg'
+import '../styles/about.css'
+import { ReactComponent as Phoenix } from '../images/SUM Phoenix SVG Logo.svg'
 
 function About() {
     return (

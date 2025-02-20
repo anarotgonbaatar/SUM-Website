@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react'
-import './styles/home.css'
-import Logo from './images/pheonix-logo.png'
+import '../styles/home.css'
+import Logo from '../images/pheonix-logo.png'
 import { FaFacebookSquare, FaInstagram } from 'react-icons/fa'
 
 function Home() {
@@ -22,7 +22,7 @@ function Home() {
             loggedVisit.current = true
         }
     }, [])
-
+	
     const [ showForm, setShowForm ] = useState( false );
     // const [ buttonText, setButtonText ] = useState( 'SUBMIT' );
     // const [ buttonDisabled, setButtonDisabled ] = useState( false );

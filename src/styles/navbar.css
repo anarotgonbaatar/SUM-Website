@@ -18,10 +18,16 @@
     backdrop-filter: blur(2rem);
 }  
 
+
+
 .nav-btn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
     cursor: pointer;
     color: white;
-    padding: 0.5rem 1rem 0.5rem 1rem;
+    padding: 0.5rem 0.75rem 0.5rem 0.75rem;
     border-radius: 0.25rem;
 
     background-color: transparent;

@@ -1,70 +1,90 @@
-# SUM Website
+# Sigma Upsilon Mu (SUM) Website
 
-This project
+Welcome to the official GitHub repository for the Sigma Upsilon Mu (SUM) website. This website serves as one of our main platforms for information about our fraternity, upcoming events, member achievments, and more.
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+- Overview
+- Live Website
+- Features
+- Tech Stack
+- Getting Started
+- Folder Structure
+- Deployment
+- License
 
-### `npm start`
+## Overview
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The SUM Website provides an online platform to engage with current and potential members of SUM. The site is designed to be modern, user-friendly, and responsive, making it easy for visitors to navigate and learn more about SUM.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Live Website
 
-### `npm test`
+Check out the live website: http://www.rushsum.com
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Features
 
-### `npm run build`
+- **AI Chatbot**: Integration with OpenAI to provide intelligent SUM handbook trained responses to users.
+- **Home Page**: Overview of the fraternity's mission and principles.
+- **Interest Forms**: A simple signup form for potential members that connect to SUM's GHL.
+- **Member Achievements**: Highlight the accomplishments of members.
+- **Events Section**: Stay updated on fraternity activities and rush events.
+- **Responsive Design**: Works seamlessly on desktop, tablet, and mobile devices.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Tech Stack
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Frontend
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- React
+- React Icons
+- CSS
 
-### `npm run eject`
+### Backend
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- Node.js
+- OpenAI API
+- GPT 4o mini
 
 ### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- Netlify
 
-### `npm run build` fails to minify
+## Getting Started
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+To run the project locally:
+
+### Prerequisites
+
+- Node.js and npm installed on your system
+- Git for cloning the repository
+
+### Setup
+
+1. Clone the repository
+
+   - `git clone https://github.com/anarotgonbaatar/SUM-Website.git`s
+   - `cd SUM-Website`
+
+2. Install dependencies
+
+   - `npm install`
+
+3. Start the backend server
+
+   - `node server.js`
+
+4. Start the development server:
+
+   - `npm start`
+
+   The app will run on http://localhost:3000
+
+## Deployment
+
+The project is hosted on Netlify. Deploymnet commands are configured in the `netligy.toml` file. Simply git push your commit and Netlify will automatically publish the website.
+
+- Ensure `netlify/functions/chat.js` is included in the deployment.
+- Check that the OpenAI API key is correctly configured in the Netlify environment variables.
+
+## License
+
+?

@@ -1,6 +1,6 @@
 import React from 'react'
-import './styles/mission.css'
-import Phoenix from './images/phoenix.png'
+import '../styles/mission.css'
+import Phoenix from '../images/phoenix.png'
 
 function Mission() {
     return (
