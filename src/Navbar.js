@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import './styles/navbar.css'
-import { FaUser } from "react-icons/fa"
+// import { FaUser } from "react-icons/fa"
 
 function Navbar() {
     // Scroll to section with an offset:
@@ -18,10 +18,10 @@ function Navbar() {
         }
     };
 
-	const navigate = useNavigate()
-	const handlePortal = () => {
-		navigate('/auth')
-	}
+	// const navigate = useNavigate()
+	// const handlePortal = () => {
+	// 	navigate('/auth')
+	// }
 
     return (
         <div className='' id='navbar'>
