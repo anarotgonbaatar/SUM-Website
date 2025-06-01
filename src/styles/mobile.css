@@ -1,0 +1,33 @@
+@media (max-width: 767px) {
+
+	/* Example: force navbar items to flex on mobile */
+	#navbar a {
+		display: none;
+	}
+
+	/* Show HOME button */
+	#navbar a[href="#home-section"] {
+		display: flex !important;
+	}
+
+	/* Show beSUMone button */
+	#navbar a[href="#besumone-section"] {
+		display: flex !important;
+	}
+
+	/* Show account button */
+	#navbar > a:last-child {
+		display: flex !important;
+	}
+
+	/* Example: home logo full width */
+	#home-logo {
+		width: 100% !important;
+		max-width: none !important;
+	}
+
+	#gallery {
+		grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+	}
+
+}
