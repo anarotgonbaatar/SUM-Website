@@ -182,7 +182,7 @@ export default function GalleryManager() {
 			
 			<h3 className="dashboard-title">Gallery Manager</h3>
 
-			<button className='btn'>
+			<button className='btn' title='Back to Dashboard'>
 				<Link
 					to="/admin/dashboard"
 					className="text-[black]"
@@ -204,7 +204,9 @@ export default function GalleryManager() {
                         placeholder="Enter album name"
                     />
                 </label>
-                <button onClick={handleAddAlbum} className="btn">Add Album</button>
+                <button onClick={handleAddAlbum} className="btn" title='Add New Album'>
+					Add Album
+				</button>
             </div>
 
             {/* ALBUMS LIST */}
@@ -220,10 +222,12 @@ export default function GalleryManager() {
                         <div className="flex justify-between items-center">
                             <div className="text-[1.25rem]">{album.name}</div>
                             <div className="flex gap-[0.5rem]">
-                                <button onClick={() => toggleAlbum(album.id)} className="btn">
+                                <button onClick={() => toggleAlbum(album.id)} className="btn" title='Toggle Album Details'>
                                     {expandedAlbums.includes(album.id) ? <FaAngleUp/> : <FaAngleDown/>}
                                 </button>
-                                <button onClick={() => handleDeleteAlbum(album.id)} className="btn"><FaTrashAlt/></button>
+                                <button onClick={() => handleDeleteAlbum(album.id)} className="btn" title='Delete Album'>
+									<FaTrashAlt/>
+								</button>
                             </div>
                         </div>
 
@@ -269,14 +273,21 @@ export default function GalleryManager() {
 													<button
 														onClick={() => handleSaveTitle(img.id)}
 														className="btn w-full"
+														 title='Save Title'
 													>
 														<FaCheck/>
 													</button>
 												</div>
                                                 <div className="flex justify-between">
-                                                    <button onClick={() => moveImage(album.id, img.id, 'left')} className="btn"><FaAngleLeft/></button>
-                                                    <button onClick={() => moveImage(album.id, img.id, 'right')} className="btn"><FaAngleRight/></button>
-                                                    <button onClick={() => handleDeleteImage(img.id)} className="btn"><FaTrash/></button>
+                                                    <button onClick={() => moveImage(album.id, img.id, 'left')} className="btn" title='Reorder Left'>
+														<FaAngleLeft/>
+													</button>
+                                                    <button onClick={() => moveImage(album.id, img.id, 'right')} className="btn" title='Reorder Right'>
+														<FaAngleRight/>
+													</button>
+                                                    <button onClick={() => handleDeleteImage(img.id)} className="btn" title='Delete Image'>
+														<FaTrash/>
+													</button>
                                                 </div>
                                             </div>
                                         ))}

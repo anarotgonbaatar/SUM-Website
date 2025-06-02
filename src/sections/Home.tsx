@@ -1,25 +1,24 @@
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef } from "react"
 import { FaFacebookSquare, FaInstagram } from "react-icons/fa"
 import PhoenixLogo from "../assets/logos/pheonix-sum-white.png"
 import FullertonLogo from "../assets/logos/fullerton-logo.png"
 
 export default function Home() {
-	const formRef = useRef<HTMLDivElement>( null )
 	const loggedVisit = useRef< boolean >( false )
 
-	// useEffect(() => {
-	// 	if (!loggedVisit.current) {
-	// 		fetch(
-	// 			"https://script.google.com/macros/s/AKfycbx6JTX6HnHyUW_lMmOlpNBKUoCFU7bWZDiU5QamSLn0O5kNwI20I-DlUo1pnMd-hbiL6g/exec",
-	// 			{
-	// 			method: "POST",
-	// 			headers: { "Content-Type": "application/x-www-form-urlencoded" },
-	// 			body: new URLSearchParams({ eventType: "visit" }),
-	// 			}
-	// 		)
-	// 		loggedVisit.current = true
-	// 	}
-	// }, [])
+	useEffect(() => {
+		if (!loggedVisit.current) {
+			fetch(
+				"https://script.google.com/macros/s/AKfycbx6JTX6HnHyUW_lMmOlpNBKUoCFU7bWZDiU5QamSLn0O5kNwI20I-DlUo1pnMd-hbiL6g/exec",
+				{
+					method: "POST",
+					headers: { "Content-Type": "application/x-www-form-urlencoded" },
+					body: new URLSearchParams({ eventType: "visit" }),
+				}
+			)
+			loggedVisit.current = true
+		}
+	}, [])
 
 	return (
 		<section className="section min-h-[100vh] pt-[4rem]" id="home-section">

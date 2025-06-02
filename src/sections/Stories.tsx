@@ -7,14 +7,6 @@ import Erick from '../assets/stories/Erick Ojeda.jpeg'
 import Daniel from '../assets/stories/Daniel Cazares.jpg'
 
 export default function Stories() {
-    const scrollToSection = (sectionId: string, offset = 40) => {
-        const section = document.getElementById(sectionId)
-        if (section) {
-            const sectionPosition = section.getBoundingClientRect().top + window.pageYOffset
-            const offsetPosition = sectionPosition - offset
-            window.scrollTo({ top: offsetPosition, behavior: 'smooth' })
-        }
-    }
 
     const [ctaText, setCtaText] = useState('Want to be Featured?')
 

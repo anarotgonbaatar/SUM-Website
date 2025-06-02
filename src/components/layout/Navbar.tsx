@@ -33,7 +33,7 @@ export default function Navbar() {
 				py-[0.5rem]
 				backdrop-blur-[2rem]
 				border-b-2 border-[var(--glass)]
-				bg-[var(--crimson-glass)]
+				bg-[var(--glass-dark)]
 			"
 		>
 			{sections.map(({ id, label }) => {
