@@ -56,10 +56,11 @@ export default function Navbar() {
 
 
 			{/* ACCOUNT BUTTON */}
-			<Link to={user ? "/admin/dashboard" : "/admin/auth"}>
-				<FaUser className="
+			<Link to={user ? "/admin/dashboard" : "/admin/auth"} className="">
+				<FaUser
+					className="
 						flex text-[white]
-						h-auto w-max px-[0.5rem] py-[0.25rem]
+						h-full w-[2.5rem] p-[0.5rem]!
 						border-2 border-[var(--glass)]
 						rounded-ss-[0.5rem] rounded-ee-[0.5rem]
 						hover:bg-[var(--glass)] hover:shadow-[0_0_0.5rem_var(--shadow)]

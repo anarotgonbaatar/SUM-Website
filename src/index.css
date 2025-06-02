@@ -39,6 +39,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
     background-color: var(--crimson);
     color: var(--text);
+	overflow-x: hidden;
 }
 
 /* SECTION */

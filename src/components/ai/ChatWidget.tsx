@@ -33,7 +33,7 @@ export default function ChatWidget() {
 		<div
 			id="chat-window"
 			className={`fixed bottom-[1rem] right-[1rem] z-50 flex flex-col p-[0.5rem] bg-[var(--shadow)] border-3 border-[var(--glass)] rounded-ss-[1.5rem] rounded-ee-[1.5rem] backdrop-blur-[2rem] shadow-[0_0_1rem_var(--shadow)] ${
-				isOpen ? 'max-w-[100%] w-[25rem] h-[32rem] bg-[var(--glass-dark)]!' : ''
+				isOpen ? 'max-w-[calc(100vw-2rem)] w-[28rem] h-[32rem] bg-[var(--glass-dark)]!' : ''
 			}`}
 		>
 			{/* Phoenix profile section */}

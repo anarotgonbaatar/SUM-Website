@@ -32,3 +32,5 @@ project.zip
 
 # VSCode settings (optional)
 .vscode/
+# Local Netlify folder
+.netlify
