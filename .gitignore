@@ -24,4 +24,11 @@ yarn-error.log*
 
 .env
 
+# Personal Tools
 project.zip
+
+# Vite
+.vite/
+
+# VSCode settings (optional)
+.vscode/

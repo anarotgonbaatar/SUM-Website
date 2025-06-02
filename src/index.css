@@ -49,6 +49,7 @@ body {
     align-items: center;
     text-align: center;
 	width: 100%;
+	overflow-x: hidden;
 
     gap: 1rem;
     padding: 5rem 1rem;

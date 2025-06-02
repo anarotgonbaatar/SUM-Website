@@ -1,4 +1,5 @@
 import Footer from './Footer'
+import ChatWidget from '../ai/ChatWidget'
 import { Outlet } from 'react-router-dom'
 
 export default function Layout() {
@@ -8,6 +9,7 @@ export default function Layout() {
 				<Outlet />
 			</main>
 			<Footer />
+			<ChatWidget />
 		</div>
 	)
 }
