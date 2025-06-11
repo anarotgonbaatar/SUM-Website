@@ -112,7 +112,7 @@ export default function Stories() {
                         </ul>
 
                         {s.links.length > 0 && (
-                            <div className="flex gap-3 mt-2">
+                            <div className="icons ">
                                 {s.links.map((link, k) => (
                                     <a
                                         key={k}

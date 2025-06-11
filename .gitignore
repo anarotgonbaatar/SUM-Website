@@ -34,3 +34,6 @@ project.zip
 .vscode/
 # Local Netlify folder
 .netlify
+
+# Ignore built assets
+dist/

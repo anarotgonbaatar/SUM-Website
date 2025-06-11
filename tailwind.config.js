@@ -5,10 +5,10 @@ export default {
 	],
 	theme: {
 		extend: {
-		colors: {
-			crimson: "#9b1626",
-			gold: "#FFB923"
-		}
+			colors: {
+				crimson: "#9b1626",
+				gold: "#FFB923"
+			}
 		},
 	},
 	plugins: [],

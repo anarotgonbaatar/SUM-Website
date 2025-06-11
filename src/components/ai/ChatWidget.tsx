@@ -52,7 +52,7 @@ export default function ChatWidget() {
 							className={`p-[0.5rem] rounded-ss-[0.5rem] rounded-ee-[0.5rem] max-w-[75%] ${
 								msg.sender === 'user'
 									? 'bg-[var(--crimson-dark)] border-2 border-[var(--crimson)] self-end'
-									: 'bg-[var(--gold)] border-2 border-[var(--gold-light)] self-start'
+									: 'bg-[var(--gold)] border-2 border-[var(--gold-light)] self-start text-[black]'
 							}`}
 						>
 							{msg.text}
