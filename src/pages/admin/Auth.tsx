@@ -1,11 +1,6 @@
 import { useState } from 'react'
-import { createClient } from '@supabase/supabase-js'
+import { supabase } from '../../lib/supabaseClient'
 import { Link } from 'react-router'
-
-const supabase = createClient(
-    import.meta.env.VITE_SUPABASE_URL!,
-    import.meta.env.VITE_SUPABASE_ANON_KEY!
-)
 
 export default function Auth() {
     const [isSignUp, setIsSignUp] = useState(false)
