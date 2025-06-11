@@ -31,7 +31,7 @@ export default function Auth() {
 				.single()
 
 			if (memberError || !memberCheck) {
-				setError('You are not a registered SUM member.')
+				setError('You are not a SUM Board member.')
 				return
 			}
 

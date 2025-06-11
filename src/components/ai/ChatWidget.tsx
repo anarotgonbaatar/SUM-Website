@@ -21,8 +21,18 @@ export default function ChatWidget() {
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({ messages: [{ role: 'user', content: userInput }] })
 		})
+		if (!res.ok) {
+			console.error("Server error:", res.status)
+			return
+		}
 
-		const data = await res.json()
+		let data
+		try {
+			data = await res.json()
+		} catch (err) {
+			console.error("Failed to parse JSON:", err)
+			return
+		}
 		const botMsg = { sender: 'bot', text: data.reply }
 
 		setMessages(prev => [...prev, botMsg])
