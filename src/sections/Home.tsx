@@ -1,10 +1,13 @@
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 import { FaFacebookSquare, FaInstagram } from "react-icons/fa"
 import PhoenixLogo from "../assets/logos/pheonix-sum-white.png"
 import FullertonLogo from "../assets/logos/fullerton-logo.png"
+import SignUpForm from "../components/common/SignUpForm"
 
 export default function Home() {
 	const loggedVisit = useRef< boolean >( false )
+	const [openSignup, setOpenSignup] = useState<boolean>( false )
+	const panelRef = useRef<HTMLDivElement>( null )
 
 	useEffect(() => {
 		if (!loggedVisit.current) {
@@ -20,6 +23,25 @@ export default function Home() {
 		}
 	}, [])
 
+	// Open the panel if URL is ...#signup or ?target=signup (for QR)
+	useEffect(() => {
+		const tryOpenFromURL = () => {
+			const targetFromHash = location.hash === "#signup"
+			const params = new URLSearchParams(location.search)
+			const targetFromQuery = params.get("target") === "signup"
+			if ((targetFromHash || targetFromQuery) && !openSignup) {
+				setOpenSignup(true)
+				// scroll after it renders
+				setTimeout(() => {
+					panelRef.current?.scrollIntoView({ behavior: "smooth", block: "start" })
+				}, 0)
+			}
+		}
+		tryOpenFromURL()
+		window.addEventListener("hashchange", tryOpenFromURL)
+		return () => window.removeEventListener("hashchange", tryOpenFromURL)
+	}, [openSignup])
+
 	return (
 		<section className="section min-h-[100vh] pt-[4rem]" id="home-section">
 			<img id="home-logo" src={ PhoenixLogo } alt="SUM Logo" className="w-full max-w-[28rem]" />
@@ -28,9 +50,14 @@ export default function Home() {
 				Build World Class Business Skills While In College
 			</span>
 
-			<a href="#besumone-section" className="btn cta-btn">
-				SUM (Sign Up, Mate!)
-			</a>
+			<details id="signup-panel" open={openSignup} onToggle={(e) => setOpenSignup((e.target as HTMLDetailsElement).open)}>
+				<summary className="btn cta-btn">
+					SUM (Sign Up, Mate!)
+				</summary>
+
+				{/* content */}
+				{openSignup && <SignUpForm />}
+			</details>
 
 			<div className="icons">
 				<a
