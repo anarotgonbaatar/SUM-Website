@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { supabase } from '../../lib/supabaseClient'
 import { Link } from 'react-router'
 import heic2any from 'heic2any'
-import { FaTrashAlt, FaAngleDown, FaAngleUp, FaCheck, FaTrash, FaAngleLeft, FaAngleRight } from 'react-icons/fa'
+import { FaTrashAlt, FaAngleDown, FaAngleUp, FaCheck, FaTrash, FaAngleLeft, FaAngleRight, FaArrowUp, FaArrowDown } from 'react-icons/fa'
 
 export default function GalleryManager() {
     const [albums, setAlbums] = useState<any[]>([])
@@ -11,12 +11,11 @@ export default function GalleryManager() {
     const [albumName, setAlbumName] = useState('')
 	const [titleEdits, setTitleEdits] = useState<{ [key: string]: string }>({})
 
-
     const fetchAlbums = async () => {
         const { data, error } = await supabase
             .from('albums')
             .select('*')
-            .order('created_at', { ascending: false })
+            .order('order', { ascending: true, nullsFirst: false })
 
         if (!error) {
             setAlbums(data || [])
@@ -52,10 +51,12 @@ export default function GalleryManager() {
 
         const slug = albumName.toLowerCase().replace(/\s+/g, '-')
 
-        await supabase.from('albums').insert({ name: albumName, slug })
+		const maxOrder = Math.max(0, ...albums.map(a => a.order || 0))
+        await supabase.from('albums').insert({ name: albumName, slug, order: maxOrder + 1 })
 
         setAlbumName('')
-        fetchAlbums()
+        setAlbumName('')
+		fetchAlbums()
     }
 
     const handleDeleteAlbum = async (id: string) => {
@@ -66,6 +67,19 @@ export default function GalleryManager() {
 
         fetchAlbums()
         fetchImages()
+    }
+
+	const moveAlbum = async (albumId: string, direction: 'up' | 'down') => {
+        const sorted = [...albums].sort((a, b) => (a.order || 0) - (b.order || 0))
+        const index = sorted.findIndex(a => a.id === albumId)
+        if (index === -1) return
+        const swapWithIndex = direction === 'up' ? index - 1 : index + 1
+        if (swapWithIndex < 0 || swapWithIndex >= sorted.length) return
+        const current = sorted[index]
+        const swap = sorted[swapWithIndex]
+        await supabase.from('albums').update({ order: swap.order }).eq('id', current.id)
+        await supabase.from('albums').update({ order: current.order }).eq('id', swap.id)
+        fetchAlbums()
     }
 
     const convertToWebP = async (file: File) => {
@@ -150,32 +164,28 @@ export default function GalleryManager() {
         fetchImages()
     }
 
-    const moveImage = async (albumId: string, imageId: string, direction: 'left' | 'right') => {
-        const albumImages = images
-            .filter(img => img.album_id === albumId)
-            .sort((a, b) => (a.order || 0) - (b.order || 0))
+    // Swap image order by typing a number (atomic via RPC)
+	const setImageOrder = async (albumId: string, imageId: string, newOrderRaw: number | string) => {
+		const newOrder = Number(newOrderRaw)
+		if (!Number.isInteger(newOrder) || newOrder < 0) return
+		const { error } = await supabase.rpc('swap_image_order', {
+			_image_id: imageId,
+			_album_id: albumId,
+			_new_order: newOrder
+		})
+		if (!error) {
+			await fetchImages()
+		} else {
+			alert('Could not set order: ' + error.message)
+		}
+	}
 
-        const index = albumImages.findIndex(img => img.id === imageId)
-        if (index === -1) return
-
-        const swapWithIndex = direction === 'left' ? index - 1 : index + 1
-        if (swapWithIndex < 0 || swapWithIndex >= albumImages.length) return
-
-        const currentImage = albumImages[index]
-        const swapImage = albumImages[swapWithIndex]
-
-        await supabase.from('images').update({ order: swapImage.order }).eq('id', currentImage.id)
-        await supabase.from('images').update({ order: currentImage.order }).eq('id', swapImage.id)
-
-        fetchImages()
-    }
 
 	const handleSaveTitle = async (imageId: string) => {
 		const newTitle = titleEdits[imageId] ?? '';
 		await supabase.from('images').update({ title: newTitle }).eq('id', imageId);
 		fetchImages();
 	};
-
 
     return (
         <div className="dashboard-section">
@@ -222,6 +232,12 @@ export default function GalleryManager() {
                         <div className="flex justify-between items-center">
                             <div className="text-[1.25rem]">{album.name}</div>
                             <div className="flex gap-[0.5rem]">
+								<button onClick={() => moveAlbum(album.id, 'up')} className="btn" title='Move Album Up'>
+                                    <FaArrowUp/>
+                                </button>
+                                <button onClick={() => moveAlbum(album.id, 'down')} className="btn" title='Move Album Down'>
+                                    <FaArrowDown/>
+								</button>
                                 <button onClick={() => toggleAlbum(album.id)} className="btn" title='Toggle Album Details'>
                                     {expandedAlbums.includes(album.id) ? <FaAngleUp/> : <FaAngleDown/>}
                                 </button>
@@ -250,48 +266,67 @@ export default function GalleryManager() {
                                     />
                                 </label>
 
-                                {/* IMAGES/VIDEOS IN THIS ALBUM */}
-                                <div className="grid grid-cols-2 md:grid-cols-3 gap-[0.5rem]">
-                                    {images
-                                        .filter(img => img.album_id === album.id)
-                                        .sort((a, b) => (a.order || 0) - (b.order || 0))
-                                        .map(img => (
-                                            <div key={img.id} className="bg-[black] rounded-ss-[0.5rem] rounded-ee-[0.5rem] overflow-hidden gap-[0.25rem] flex flex-col p-[0.25rem]">
-                                                {img.media_type === 'video' ? (
-                                                    <video src={img.image_url} controls className="w-full h-auto object-cover" />
-                                                ) : (
-                                                    <img src={img.image_url} alt={img.alt} className="object-cover w-full h-auto my-auto" />
-                                                )}
+                                {/* IMAGES/VIDEOS IN THIS ALBUM (Horizontal row, album-only x-scroll) */}
+								<div className="overflow-x-auto no-scrollbar">
+								<div className="flex gap-[0.5rem] pr-[0.5rem]">
+									{images
+										.filter(img => img.album_id === album.id)
+										.sort((a, b) => (a.order || 0) - (b.order || 0))
+										.map(img => (
+											<div
+												key={img.id}
+												className="flex-none w-[12rem] bg-[black] rounded-ss-[0.5rem] rounded-ee-[0.5rem] overflow-hidden gap-[0.25rem] flex flex-col p-[0.25rem]"
+												title={`Current order: ${img.order ?? 0}`}
+											>
+												{img.media_type === 'video' ? (
+													<video src={img.image_url} controls className="w-full h-[9rem] object-cover" />
+												) : (
+													<img src={img.image_url} alt={img.alt} className="object-cover w-full" />
+												)}
+
+												{/* Title edit row (unchanged) */}
 												<div className="flex gap-[0.25rem]">
 													<input
 														type="text"
 														value={titleEdits[img.id] ?? img.title ?? ''}
 														onChange={e => setTitleEdits(prev => ({ ...prev, [img.id]: e.target.value }))}
 														placeholder="Enter title"
-														className="text-center"
+														className="text-center flex-1"
 													/>
-													<button
-														onClick={() => handleSaveTitle(img.id)}
-														className="btn w-full"
-														 title='Save Title'
-													>
+													<button onClick={() => handleSaveTitle(img.id)} className="btn w-[3rem]" title="Save Title">
 														<FaCheck/>
 													</button>
 												</div>
-                                                <div className="flex justify-between">
-                                                    <button onClick={() => moveImage(album.id, img.id, 'left')} className="btn" title='Reorder Left'>
-														<FaAngleLeft/>
-													</button>
-                                                    <button onClick={() => moveImage(album.id, img.id, 'right')} className="btn" title='Reorder Right'>
-														<FaAngleRight/>
-													</button>
-                                                    <button onClick={() => handleDeleteImage(img.id)} className="btn" title='Delete Image'>
+
+												{/* Order + Delete row */}
+												<div className="flex items-center justify-between gap-[0.25rem]">
+													<div className="flex items-center gap-[0.25rem]">
+													<span className="text-xs opacity-80">Order</span>
+													<input
+														type="number"
+														min={0}
+														defaultValue={img.order ?? 0}
+														className="input !px-2 !py-1 w-[4.5rem]"
+														onKeyDown={(e) => {
+														if (e.key === 'Enter') {
+															const val = (e.target as HTMLInputElement).value
+															setImageOrder(album.id, img.id, val)
+															;(e.target as HTMLInputElement).blur()
+														}
+														}}
+														onBlur={(e) => setImageOrder(album.id, img.id, (e.target as HTMLInputElement).value)}
+														title="Type a number; if taken, images will swap"
+													/>
+													</div>
+
+													<button onClick={() => handleDeleteImage(img.id)} className="btn" title="Delete Image">
 														<FaTrash/>
 													</button>
-                                                </div>
-                                            </div>
-                                        ))}
-                                </div>
+												</div>
+											</div>
+										))}
+									</div>
+								</div>
                             </div>
                         )}
                     </li>

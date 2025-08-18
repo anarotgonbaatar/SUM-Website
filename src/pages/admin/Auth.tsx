@@ -1,87 +1,81 @@
 import { useState } from 'react'
 import { supabase } from '../../lib/supabaseClient'
-import { Link } from 'react-router'
+import { Link, useNavigate } from 'react-router'
 
 export default function Auth() {
     const [isSignUp, setIsSignUp] = useState(false)
-    const [form, setForm] = useState({
-        email: '',
-        password: '',
-        first_name: '',
-        last_name: '',
-        position: ''
-    })
-    const [error, setError] = useState('')
-    const [success, setSuccess] = useState('')
+	const [form, setForm] = useState({
+		email: '',
+		password: '',
+		first_name: '',
+		last_name: '',
+		position: ''
+	})
+	const [error, setError] = useState('')
+	const [success, setSuccess] = useState('')
+	const navigate = useNavigate()
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-        setForm({ ...form, [e.target.name]: e.target.value })
-    }
+	const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+		setForm({ ...form, [e.target.name]: e.target.value })
+	}
 
-    const handleAuth = async () => {
+	const handleAuth = async () => {
 		setError('')
 		setSuccess('')
+		const email = form.email.trim().toLowerCase()
 
 		if (isSignUp) {
-			// Validate member by email first
-			const { data: memberCheck, error: memberError } = await supabase
-				.from('members')
-				.select('*')
-				.eq('email', form.email)
-				.single()
+		// Check membership via RPC
+		const { data: rows, error: rpcError } = await supabase.rpc('is_member', { _email: email })
+		if (rpcError || !rows || rows.length === 0) {
+			setError('You are not a SUM Board member.')
+			return
+		}
+		const member = rows[0]
 
-			if (memberError || !memberCheck) {
-				setError('You are not a SUM Board member.')
-				return
-			}
+		const meta = {
+			first_name: member.first_name,
+			last_name: member.last_name,
+			position: form.position || '',
+			role: member.role || 'editor'
+		}
 
-			// Validate names and position match
-			if (
-				memberCheck.first_name.trim().toLowerCase() !== form.first_name.trim().toLowerCase() ||
-				memberCheck.last_name.trim().toLowerCase() !== form.last_name.trim().toLowerCase() ||
-				memberCheck.position.trim().toLowerCase() !== form.position.trim().toLowerCase()
-			) {
-				setError('Not a registered SUM member.')
-				return
-			}
+		// Sign up (no confirmation required now)
+		const { error: signUpError } = await supabase.auth.signUp({
+			email,
+			password: form.password,
+			options: { data: meta }
+		})
 
-			// Try Sign Up
-			const { error: signUpError } = await supabase.auth.signUp({
-				email: form.email,
-				password: form.password,
-				options: {
-					data: {
-						first_name: form.first_name,
-						last_name: form.last_name,
-						position: form.position,
-						role: memberCheck.role || 'editor'
-					},
-					emailRedirectTo: `${window.location.origin}/admin/dashboard`
-				}
-			})
-
-			if (signUpError) {
-				// Special case for already signed up
-				if (signUpError.message.includes('User already registered')) {
-					setError('This email is already signed up. Please sign in instead.')
-				} else {
-					setError(signUpError.message)
-				}
+		if (signUpError) {
+			if (signUpError.message.includes('User already registered')) {
+			setError('This email is already signed up. Please sign in instead.')
 			} else {
-				setSuccess('Confirmation email sent! Please check your inbox.')
+			setError(signUpError.message)
 			}
+			return
+		}
+
+		// Immediately sign in after successful sign up
+		const { error: signInError } = await supabase.auth.signInWithPassword({ email, password: form.password })
+		if (signInError) {
+			setError('Could not sign in after registration.')
+			return
+		}
+
+		setSuccess('Registration successful! Redirecting...')
+		navigate('/admin/dashboard')
 		} else {
 			// Sign In
 			const { error: signInError } = await supabase.auth.signInWithPassword({
-				email: form.email,
+				email,
 				password: form.password
 			})
-
 			if (signInError) {
 				setError('Email or password is incorrect.')
 			} else {
 				setSuccess('Sign in successful! Redirecting...')
-				window.location.href = '/admin/dashboard'
+				navigate('/admin/dashboard')
 			}
 		}
 	}

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react"
-import { FaFacebookSquare, FaInstagram } from "react-icons/fa"
+import { FaFacebookSquare, FaInstagram, FaLinkedin } from "react-icons/fa"
 import PhoenixLogo from "../assets/logos/pheonix-sum-white.png"
 import FullertonLogo from "../assets/logos/fullerton-logo.png"
 import SignUpForm from "../components/common/SignUpForm"
@@ -75,6 +75,14 @@ export default function Home() {
 					rel="noopener noreferrer"
 				>
 				<FaFacebookSquare className="icon" />
+				</a>
+				<a
+					title="Sigma Upsilon Mu LinkedIn Page"
+					href="https://www.linkedin.com/company/sigmaupsilonmu/"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+				<FaLinkedin className="icon" />
 				</a>
 				<a
 					href="https://www.fullerton.edu/"
