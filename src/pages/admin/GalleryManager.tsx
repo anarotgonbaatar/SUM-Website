@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { supabase } from '../../lib/supabaseClient'
 import { Link } from 'react-router'
 import heic2any from 'heic2any'
-import { FaTrashAlt, FaAngleDown, FaAngleUp, FaCheck, FaTrash, FaAngleLeft, FaAngleRight, FaArrowUp, FaArrowDown } from 'react-icons/fa'
+import { FaTrashAlt, FaAngleDown, FaAngleUp, FaCheck, FaTrash, FaArrowUp, FaArrowDown } from 'react-icons/fa'
 
 export default function GalleryManager() {
     const [albums, setAlbums] = useState<any[]>([])

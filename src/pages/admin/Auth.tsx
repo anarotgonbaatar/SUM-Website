@@ -57,13 +57,14 @@ export default function Auth() {
 			}
 
 			// Immediately sign in after successful sign up
-			setSuccess('Registration successful! You can now sign in.')
-			setIsSignUp(false)
-			setForm(prev => ({
-				...prev,
-				password: ''
-			}))
-			return
+			const { error: signInError } = await supabase.auth.signInWithPassword({ email, password: form.password })
+			if (signInError) {
+				setError('Could not sign in after registration.')
+				return
+			}
+
+			setSuccess('Registration successful! Redirecting...')
+			navigate('/admin/dashboard')
 		} else {
 			// Sign In
 			const { error: signInError } = await supabase.auth.signInWithPassword({
