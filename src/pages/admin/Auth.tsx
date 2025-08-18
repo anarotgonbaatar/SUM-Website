@@ -25,46 +25,45 @@ export default function Auth() {
 		const email = form.email.trim().toLowerCase()
 
 		if (isSignUp) {
-		// Check membership via RPC
-		const { data: rows, error: rpcError } = await supabase.rpc('is_member', { _email: email })
-		if (rpcError || !rows || rows.length === 0) {
-			setError('You are not a SUM Board member.')
-			return
-		}
-		const member = rows[0]
-
-		const meta = {
-			first_name: member.first_name,
-			last_name: member.last_name,
-			position: form.position || '',
-			role: member.role || 'editor'
-		}
-
-		// Sign up (no confirmation required now)
-		const { error: signUpError } = await supabase.auth.signUp({
-			email,
-			password: form.password,
-			options: { data: meta }
-		})
-
-		if (signUpError) {
-			if (signUpError.message.includes('User already registered')) {
-			setError('This email is already signed up. Please sign in instead.')
-			} else {
-			setError(signUpError.message)
+			// Check membership via RPC
+			const { data: rows, error: rpcError } = await supabase.rpc('is_member', { _email: email })
+			if (rpcError || !rows || rows.length === 0) {
+				setError('You are not a SUM Board member.')
+				return
 			}
-			return
-		}
+			const member = rows[0]
 
-		// Immediately sign in after successful sign up
-		const { error: signInError } = await supabase.auth.signInWithPassword({ email, password: form.password })
-		if (signInError) {
-			setError('Could not sign in after registration.')
-			return
-		}
+			const meta = {
+				first_name: member.first_name,
+				last_name: member.last_name,
+				position: form.position || '',
+				role: member.role || 'editor'
+			}
 
-		setSuccess('Registration successful! Redirecting...')
-		navigate('/admin/dashboard')
+			// Sign up (no confirmation required now)
+			const { error: signUpError } = await supabase.auth.signUp({
+				email,
+				password: form.password,
+				options: { data: meta }
+			})
+
+			if (signUpError) {
+				if (signUpError.message.includes('User already registered')) {
+					setError('This email is already signed up. Please sign in instead.')
+				} else {
+					setError(signUpError.message)
+				}
+				return
+			}
+
+			// Immediately sign in after successful sign up
+			setSuccess('Registration successful! You can now sign in.')
+			setIsSignUp(false)
+			setForm(prev => ({
+				...prev,
+				password: ''
+			}))
+			return
 		} else {
 			// Sign In
 			const { error: signInError } = await supabase.auth.signInWithPassword({
