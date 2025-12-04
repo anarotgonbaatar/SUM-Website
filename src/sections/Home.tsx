@@ -59,6 +59,15 @@ export default function Home() {
 				{openSignup && <SignUpForm />}
 			</details>
 
+			<a
+				className="btn"
+				href="https://sumclothing.com/"
+				target="_blank"
+				rel="noopener noreferrer"
+			>
+				Shop SUM Merch
+			</a>
+
 			<div className="icons">
 				<a
 					title="Sigma Upsilon Mu Instagram Page"
