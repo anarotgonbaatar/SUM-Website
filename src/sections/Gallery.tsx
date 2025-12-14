@@ -74,7 +74,7 @@ export default function Gallery() {
   }, [selectedAlbum])
 
 	return (
-		<section id="gallery-section" className="section bg-[white] text-[black]">
+		<section id="gallery-section" className="">
 		<h2 className="section-title">GALLERY</h2>
 
 		{/* Tab Buttons */}

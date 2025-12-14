@@ -2,7 +2,7 @@ import Phoenix from '../assets/logos/phoenix-white.png'
 
 export default function Mission() {
     return (
-        <div className='section' id='mission-section'>
+        <section id='mission-section'>
 
             {/* Background Phoenix */}
             <img
@@ -19,6 +19,6 @@ export default function Mission() {
                 Through a continuous cycle of high achievement, brotherhood, leadership, and entrepreneurship principles, we create great members, that join great companies, that redefine the limits of what’s possible.
                 Through deeds not words, together, our sole mission is to continuously cultivate an ecosystem that develops the highest achievers in the world.
             </p>
-        </div>
+        </section>
     )
 }

@@ -43,39 +43,44 @@ export default function Home() {
 	}, [openSignup])
 
 	return (
-		<section className="section min-h-[100vh] pt-[4rem]" id="home-section">
-			<img id="home-logo" src={ PhoenixLogo } alt="SUM Logo" className="w-full max-w-[28rem]" />
+		<section className="min-h-[100vh]" id="home-section">
+			
+			{/* <img id="home-logo" src={ PhoenixLogo } alt="SUM Logo" className="w-full max-w-[28rem]" />
 
 			<span className="text-xl font-semibold">
 				Build World Class Business Skills While In College
-			</span>
+			</span> */}
+			
+			<div className="flex flex-col text-center text-[5rem]">
+				<span>FACTA</span>
+				<span className="text-[4rem]">NON</span>
+				<span>VERBA</span>
+				<span className="text-[1rem]">Deeds Not Words</span>
+			</div>
 
-			<details id="signup-panel" open={openSignup} onToggle={(e) => setOpenSignup((e.target as HTMLDetailsElement).open)}>
-				<summary className="btn cta-btn">
-					SUM (Sign Up, Mate!)
-				</summary>
+			<div className="flex gap-[1rem]">
+				<button className="btn cta-btn">
+					Join SUM
+				</button>
 
-				{/* content */}
-				{openSignup && <SignUpForm />}
-			</details>
+				<a
+					className="btn"
+					href="https://sumclothing.com/"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					SUM Merch
+				</a>
+			</div>
 
-			<a
-				className="btn"
-				href="https://sumclothing.com/"
-				target="_blank"
-				rel="noopener noreferrer"
-			>
-				Shop SUM Merch
-			</a>
-
-			<div className="icons">
+			<div className="icons mt-[1rem]">
 				<a
 					title="Sigma Upsilon Mu Instagram Page"
 					href="https://www.instagram.com/sigmaupsilonmu/"
 					target="_blank"
 					rel="noopener noreferrer"
 				>
-				<FaInstagram className="icon" />
+					<FaInstagram className="icon" />
 				</a>
 				<a
 					title="Sigma Upsilon Mu Facebook Page"
@@ -83,7 +88,7 @@ export default function Home() {
 					target="_blank"
 					rel="noopener noreferrer"
 				>
-				<FaFacebookSquare className="icon" />
+					<FaFacebookSquare className="icon" />
 				</a>
 				<a
 					title="Sigma Upsilon Mu LinkedIn Page"
@@ -91,7 +96,7 @@ export default function Home() {
 					target="_blank"
 					rel="noopener noreferrer"
 				>
-				<FaLinkedin className="icon" />
+					<FaLinkedin className="icon" />
 				</a>
 				<a
 					href="https://www.fullerton.edu/"

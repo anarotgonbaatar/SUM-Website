@@ -24,7 +24,7 @@ export default function Events() {
     }, [])
 
     return (
-        <div className='section' id='events-section'>
+        <section className='' id='events-section'>
             <span className='section-title'>EVENTS</span>
 
             {loading ? (
@@ -80,6 +80,6 @@ export default function Events() {
             <a href="#besumone-section" className='btn cta-btn'>
 				JOIN US!
 			</a>
-        </div>
+        </section>
     )
 }

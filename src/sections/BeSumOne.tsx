@@ -42,7 +42,7 @@ export default function Footer() {
     // };
 
     return (
-        <div className='section bg-[black]' id='besumone-section'>
+        <section className='' id='besumone-section'>
             <img
 				id='footer-logo'
 				src={ Logo }
@@ -99,6 +99,6 @@ export default function Footer() {
 			/>
             <span>800 N State College Blvd, Fullerton, CA 92831</span>
 
-        </div>
+        </section>
     )
 }

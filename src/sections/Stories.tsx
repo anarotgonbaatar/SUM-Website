@@ -73,59 +73,62 @@ export default function Stories() {
     ]
 
     return (
-        <section id="stories-section" className="section bg-[var(--gold)] text-[black]">
+        <section id="stories-section" className="">
             
 			<h2 className="section-title">SUCCESS STORIES</h2>
 
-            <div className="w-full max-w-screen-xl mx-auto flex flex-wrap justify-center gap-[1rem]">
+            <div className="w-full gap-[1rem] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-stretch">
                 {stories.map((s, i) => (
                     <div
                         key={i}
 						id='story'
                         className="
-							w-[350px] bg-[var(--gold-light)] p-[0.5rem]
-							rounded-ss-[2rem] rounded-ee-[2rem]
+							flex flex-row items-center
+							bg-[white]
+							p-[0.5rem] gap-[0.75rem]
+							rounded-[1.5rem_0.25rem]
 							overflow-hidden
 						"
                     >
-                        <div className="
-								w-full bg-[white] border-[0.25rem] border-[white]
-								rounded-ss-[1.5rem] rounded-ee-[1.5rem]
-								overflow-hidden
-							"
-						>
-                            <img
+						<div className='flex flex-col h-full'>
+							{/* Image */}
+							<img
 								id='story-portrait'
-                                src={s.img}
-                                alt={s.name}
-                                className="w-full h-full object-cover"
-                            />
-                        	<h3 id='name' className="text-[1.25rem] font-[600] my-[0.25rem]">{s.name}</h3>
-                        </div>
+								src={s.img}
+								alt={s.name}
+								className="w-[12rem] h-full object-cover rounded-[1rem_0.25rem]"
+							/>
+							{/* Name */}
+							<span id='name' className="text-[1.25rem] text-[black]">{s.name}</span>
+						</div>
 
-                        <p id='quote' className="italic text-[var(--crimson-dark)] my-[0.5rem]">{s.quote}</p>
+                        <div className='flex flex-col text-left gap-[0.75rem]'>
+							{/* Quote */}
+							<p id='quote' className="italic text-[var(--crimson-dark)]">"{s.quote}"</p>
+							{/* Achievements */}
+							<ul className="list-disc list-inside text-[black]">
+								{s.achievements.map((a, j) => (
+									<li key={j}>{a}</li>
+								))}
+							</ul>
+							{/* Links */}
+							{s.links.length > 0 && (
+								<div className="icons bg-(--crimson)!">
+									{s.links.map((link, k) => (
+										<a
+											key={k}
+											href={link.href}
+											target="_blank"
+											rel="noopener noreferrer"
+											className=""
+										>
+											{link.icon}
+										</a>
+									))}
+								</div>
+							)}
+						</div>
 
-                        <ul className="list-disc list-inside text-sm mt-2">
-                            {s.achievements.map((a, j) => (
-                                <li key={j}>{a}</li>
-                            ))}
-                        </ul>
-
-                        {s.links.length > 0 && (
-                            <div className="icons ">
-                                {s.links.map((link, k) => (
-                                    <a
-                                        key={k}
-                                        href={link.href}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="text-crimson hover:scale-110 transition-transform"
-                                    >
-                                        {link.icon}
-                                    </a>
-                                ))}
-                            </div>
-                        )}
                     </div>
                 ))}
             </div>

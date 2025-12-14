@@ -5,12 +5,7 @@ export default function About() {
 	const pillars = ["Achievement", "Brotherhood", "Leadership", "Entrepreneurship"]
 	
 	return (
-        <div className='
-				section relative bg-[linear-gradient(to_bottom,white,var(--gold))]
-				text-[black] text-[1.1rem]
-			'
-			id='about-section'
-		>
+        <section id='about-section'>
 
             {/* Background Phoenix */}
             <img
@@ -83,6 +78,6 @@ export default function About() {
 					))}
                 </div>
             </div>
-        </div>
+        </section>
     )
 }
