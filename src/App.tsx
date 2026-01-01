@@ -6,6 +6,7 @@ import Events from './sections/Events'
 import Alumni from './sections/Alumni'
 import About from './sections/About'
 import Join from './sections/Join'
+import Footer from './components/Footer'
 
 export default function App() {
 	return (
@@ -14,10 +15,11 @@ export default function App() {
 			<Home />
 			<ABLE />
 			<Journey />
-			<Events />
 			<Alumni />
+			<Events />
 			<About />
 			<Join />
+			<Footer/>
 		</>
 	)
 }

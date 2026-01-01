@@ -17,4 +17,5 @@ h3 {
 p {
 	opacity: 0.9;
 	font-family: 'Poppins', sans-serif;
+	max-width: 40rem;
 }

@@ -1,16 +1,23 @@
 import ContactForm from '../components/ContactForm'
 import SectionHeader from '../components/SectionHeader'
 
-export default function Home() {
+export default function Join() {
 	return (
-		<section id='join-section'>
+		<section id='join-section' className='pb-[1rem]!'>
 			
 			<SectionHeader sectionName="Join ΣYM"/>
-			<span>Be ABLE. Be SUM one.</span>
-			<h2>Achievement. Brotherhood. Leadership. Entrepreneurship.</h2>
-			<p>We build high-achievers through real projects, real standards, and real community.</p>
+
+			<h2 className="flex flex-wrap gap-[0.4rem]">
+				<span>Be</span>
+				<span className="text-(--gold)">ABLE</span>
+				<span>.</span>
+				<span>Be</span>
+				<span className="text-(--gold)">SUM</span>
+				<span>one.</span>
+			</h2>
 
 			<ContactForm/>
+			
 		</section>
 	)
 }

@@ -3,9 +3,27 @@ import Event from '../components/Event'
 import SectionHeader from '../components/SectionHeader'
 
 const events = [
-	{ id: 1, title: 'Rush week', description: 'A week of getting to know you.', location: 'TSU', month: 'January', day: '15', time: '7 PM' },
-	{ id: 2, title: 'Rush week', description: 'A week of getting to know you.', location: 'TSU', month: 'January', day: '15', time: '7 PM' },
-	{ id: 3, title: 'Rush week', description: 'A week of getting to know you.', location: 'TSU', month: 'January', day: '15', time: '7 PM' },
+	{
+		id: 1,
+		title: 'Rush week',
+		description: 'A week of getting to know you.',
+		location: 'TSU',
+		month: 'January', day: '15', time: '7 PM'
+	},
+	{
+		id: 2,
+		title: 'Info Session 1',
+		description: 'Come learn what we are about.',
+		location: 'TSU',
+		month: 'September', day: '15', time: '7 PM'
+	},
+	{
+		id: 3,
+		title: 'Banquet',
+		description: 'You have made it to the end.',
+		location: 'TSU',
+		month: 'December', day: '31', time: '7 PM'
+	},
 ]
 
 export default function Home() {

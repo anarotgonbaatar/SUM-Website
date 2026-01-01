@@ -9,7 +9,7 @@ export default function SectionHeader({
 	return (
 		<div
 			className='
-				flex items-center justify-center gap-[0.75rem] mb-[2rem]!
+				flex items-center justify-center gap-[0.75rem] mb-[1rem]!
 			'
 		>
 			<img

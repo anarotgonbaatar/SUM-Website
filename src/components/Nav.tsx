@@ -36,8 +36,8 @@ export default function Nav() {
 				<div className="flex items-center gap-[1rem]">
 					<a onClick={() => handleNav("able-section")}>A.B.L.E.</a>
 					<a onClick={() => handleNav("journey-section")}>Journey</a>
-					<a onClick={() => handleNav("events-section")}>Events</a>
 					<a onClick={() => handleNav("alumni-section")}>Alumni</a>
+					<a onClick={() => handleNav("events-section")}>Events</a>
 					<a onClick={() => handleNav("about-section")}>About</a>
 				</div>
 
@@ -108,12 +108,12 @@ export default function Nav() {
 					<h1 className="text-[3rem]!">VERBA</h1>
 				</div>
 
-				<div className="flex flex-col gap-[1rem] items-start">
-					<a onClick={() => handleNav("able-section")}>A.B.L.E.</a>
-					<a onClick={() => handleNav("journey-section")}>Journey</a>
-					<a onClick={() => handleNav("events-section")}>Events</a>
-					<a onClick={() => handleNav("alumni-section")}>Alumni</a>
-					<a onClick={() => handleNav("about-section")}>About</a>
+				<div className="flex flex-col gap-[1rem] items-center">
+					<a onClick={() => {handleNav("able-section"); setOpen(false)}}>A.B.L.E.</a>
+					<a onClick={() => {handleNav("journey-section"); setOpen(false)}}>Journey</a>
+					<a onClick={() => {handleNav("alumni-section"); setOpen(false)}}>Alumni</a>
+					<a onClick={() => {handleNav("events-section"); setOpen(false)}}>Events</a>
+					<a onClick={() => {handleNav("about-section"); setOpen(false)}}>About</a>
 					
 					<button
 						onClick={() => {handleNav("join-section"); setOpen(false)}}

@@ -4,14 +4,14 @@ export default function ContactForm() {
 			action=""
 			className="
 				bg-gradient-to-b from-black/5 to-black/40
-				rounded-[1rem]
+				rounded-[2rem_1rem]
 				p-[1rem]!
 			"
 		>
-			<div>
+			{/* <div>
 				<h2>Join Us</h2>
 				<span>Learn World Class Business Skills.</span>
-			</div>
+			</div> */}
 			
 			<div className="flex gap-[1rem]">
 				<div className="input-div">
@@ -47,12 +47,13 @@ export default function ContactForm() {
 			</div>
 			<div className="input-div">
 				<label htmlFor="comments">Comments and/or Questions</label>
-				<textarea name="comments" placeholder="Are you open to any major? (Yes)" maxLength={255}/>
+				<textarea name="comments" placeholder="Are we open to any major? (Yes)" maxLength={255}/>
 			</div>
 
 			<button className="cta btn">
 				SUBMIT
 			</button>
+			<p className="text-white/90 mt-[-0.5rem]! text-[0.8rem]!">By submitting this form, you consent to Sigma Upsilon Mu collecting your name and contact information to follow up about recruitment. We do NOT sell your data.</p>
 		</form>
 	)
 }
