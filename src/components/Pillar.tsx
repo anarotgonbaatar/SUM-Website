@@ -1,6 +1,6 @@
 import { useState } from "react"
 import type { ReactNode } from "react"
-import { FaChevronDown, FaChevronUp } from "react-icons/fa6"
+import { FaChevronDown, FaChevronUp, FaX } from "react-icons/fa6"
 import PillarTop from "../assets/logos/pillar-top.png"
 import PillarBottom from "../assets/logos/pillar-bottom.png"
 
@@ -8,20 +8,17 @@ type PillarProps = {
 	pillarName: string
 	tagline: string
 	description: string
-	custom: ReactNode
-	link?: string
-	defaultExpanded?: boolean
+	more: ReactNode
 }
 
 export default function Pillar({
 	pillarName,
 	tagline,
 	description,
-	custom,
-	link,
-	defaultExpanded = false,
+	more,
 }: PillarProps) {
-	const [expanded, setExpanded] = useState(defaultExpanded)
+	const [expanded, setExpanded] = useState(false)
+	const [showModal, setShowModal] = useState(false)
 
 	return (
 		<div
@@ -65,14 +62,10 @@ export default function Pillar({
 
 					<p>{description}</p>
 
-					{custom}
-
 					<button
 						className="btn mb-[-1rem]!"
 						type="button"
-						onClick={() => {
-							if (link) window.open(link, "_blank")
-						}}
+						onClick={() => setShowModal(true)}
 					>
 						Learn More: {pillarName}
 					</button>
@@ -83,6 +76,54 @@ export default function Pillar({
 						className="mix-blend-screen max-w-[11rem]"
 					/>
 				</>
+			)}
+
+			{/* Learn More Modal */}
+			{showModal && (
+				<div
+					className="
+						fixed inset-0 z-2000
+						flex items-center justify-center
+						p-[3.5rem_1rem]!
+						bg-black/50 backdrop-blur-xs
+						transition-opacity duration-250
+					"
+					onClick={() => setShowModal(false)}
+				>
+					{/* Modal card */}
+					<div
+						onClick={(e) => e.stopPropagation()}
+						className="
+							relative
+							w-full h-full
+							bg-black/80
+							rounded-[1.5rem]
+							shadow-(--shadow)
+							p-[0.5rem]!
+							flex flex-col
+							animate-fade-in
+						"
+					>
+						<h2 className="mb-[1rem]!">{pillarName}</h2>
+
+						{/* Scrollable content */}
+						<div className="flex-1 overflow-y-auto pr-[0.5rem]!">
+							{more}
+						</div>
+
+						{/* Close button */}
+						<button
+							type="button"
+							onClick={() => setShowModal(false)}
+							className="
+								btn ml-auto!
+							"
+							title="Close button"
+						>
+							<FaX/>
+						</button>
+					</div>
+				</div>
 			)}
 		</div>
 	)
