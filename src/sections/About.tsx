@@ -1,7 +1,9 @@
+import SectionHeader from "../components/SectionHeader"
+
 export default function Home() {
 	return (
-		<section>
-			<h1>About ΣYM</h1>
+		<section id="about-section">
+			<SectionHeader sectionName="About ΣYM"/>
 			<span>Sigma Upsilon Mu</span>
 			<h2>Achievement. Brotherhood. Leadership. Entrepreneurship.</h2>
 			<p>We build high-achievers through real projects, real standards, and real community.</p>

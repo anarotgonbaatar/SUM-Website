@@ -3,8 +3,6 @@ import { useLocation, useNavigate } from "react-router-dom"
 import { FaBars, FaXmark } from "react-icons/fa6"
 import { FaChevronLeft } from "react-icons/fa"
 import HomeButton from "./HomeButton"
-import Phoenix from "../assets/logos/phoenix-white.png"
-import SUM from "../assets/logos/sum-white.png"
 
 export default function Nav() {
 	const location = useLocation()
@@ -27,39 +25,33 @@ export default function Nav() {
 
     return (
         <nav
-            className="
-                fixed top-0 left-0 right-0 z-1000 text-white
-                bg-gradient-to-t from-transparent to-[black]/70
-                p-[0.5rem_0.75rem]! flex items-center justify-between
-				m-[0.5rem]! rounded-[1rem] backdrop-blur-xs shadow-lg
-            "
+            className="fixed top-0 w-full z-1000 text-white p-[0.5rem]!"
         >
 			{/* ===== Desktop Navigation ===== */}
             <div
-				className="
-					hidden md:flex items-center justify-between w-full
-				"
+				className="nav-comp hidden md:flex backdrop-blur-md"
 			>
 				<HomeButton />
 
 				<div className="flex items-center gap-[1rem]">
-					<a onClick={() => handleNav("home-section")}>A.B.L.E.</a>
-					<a onClick={() => handleNav("gallery-section")}>Pledge Journey</a>
-					<a onClick={() => handleNav("about-section")}>Events</a>
-					<a onClick={() => handleNav("packages-section")}>Alumni</a>
-					<a onClick={() => handleNav("faq-section")}>About</a>
+					<a onClick={() => handleNav("able-section")}>A.B.L.E.</a>
+					<a onClick={() => handleNav("journey-section")}>Journey</a>
+					<a onClick={() => handleNav("events-section")}>Events</a>
+					<a onClick={() => handleNav("alumni-section")}>Alumni</a>
+					<a onClick={() => handleNav("about-section")}>About</a>
 				</div>
 
 				<button
-					className="hidden md:inline-flex"
-					onClick={() => handleNav("contact-section")}
+					className="hidden md:inline-flex cta btn py-[0.25rem]!"
+					onClick={() => handleNav("join-section")}
+					type="button"
 				>
 					JOIN SUM
 				</button>
 			</div>
 
             {/* ===== Mobile Navigation ===== */}
-            <div className="flex md:hidden items-center justify-between w-full">
+            <div className="flex md:hidden nav-comp backdrop-blur-md">
 				{/* Back to Home button */}
 				{!isHome && (
 					<button
@@ -94,33 +86,46 @@ export default function Nav() {
 						`}
 					/>
                 </button>
+			</div>
 
-				{/* Mobile menu */}
-				<div
-					id="mobile-menu"
-					className={`
-						backdrop-blur-xs bg-(--shadow)
-						absolute top-full left-0 right-0
-						flex flex-col items-center
-						gap-[1rem] p-[1rem]! mt-[0.5rem]!
-						shadow-lg
-						border-[1px] border-(--shadow) rounded-[1rem]
-						transition-all duration-250 ease-out
-						${open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}
-					`}
-				>
-					<a onClick={() => handleNav("home-section")}>A.B.L.E.</a>
-					<a onClick={() => handleNav("gallery-section")}>Pledge Journey</a>
-					<a onClick={() => handleNav("about-section")}>Events</a>
-					<a onClick={() => handleNav("packages-section")}>Alumni</a>
-					<a onClick={() => handleNav("faq-section")}>About</a>
+			{/* Mobile menu */}
+			<div
+				id="mobile-menu"
+				className={`
+					flex md:hidden fixed
+					bg-gradient-to-t from-[black]/40 to-[black]/5
+					inset-x-0
+					gap-[1rem] p-[1rem]! mx-[1rem]! mt-[0.5rem]! justify-between
+					shadow-(--shadow)
+					rounded-[1rem]
+					transition-all duration-250 ease-out
+					${open ? "opacity-100 pointer-events-auto backdrop-blur-md" : "opacity-0 pointer-events-none"}
+				`}
+			>
+				<div className="flex flex-col justify-center opacity-70">
+					<h1 className="text-[3rem]!">FACTA</h1>
+					<h1 className="text-[3rem]!">NON</h1>
+					<h1 className="text-[3rem]!">VERBA</h1>
+				</div>
 
-					<button onClick={() => {handleNav("contact-section"); setOpen(false)}}>
+				<div className="flex flex-col gap-[1rem] items-start">
+					<a onClick={() => handleNav("able-section")}>A.B.L.E.</a>
+					<a onClick={() => handleNav("journey-section")}>Journey</a>
+					<a onClick={() => handleNav("events-section")}>Events</a>
+					<a onClick={() => handleNav("alumni-section")}>Alumni</a>
+					<a onClick={() => handleNav("about-section")}>About</a>
+					
+					<button
+						onClick={() => {handleNav("join-section"); setOpen(false)}}
+						className="cta btn"
+						type="button"
+					>
 						Join SUM
 					</button>
 				</div>
-                
-            </div>
+
+			</div> 
+            
         </nav>
     )
 }

@@ -1,5 +1,6 @@
 import { time } from 'node:console'
 import Event from '../components/Event'
+import SectionHeader from '../components/SectionHeader'
 
 const events = [
 	{ id: 1, title: 'Rush week', description: 'A week of getting to know you.', location: 'TSU', month: 'January', day: '15', time: '7 PM' },
@@ -9,8 +10,8 @@ const events = [
 
 export default function Home() {
 	return (
-		<section>
-			<h1>Events</h1>
+		<section id="events-section">
+			<SectionHeader sectionName="Events"/>
 			<span>Earn trust, lead by example.</span>
 			<p>We lead by example. We expect the best and keep each other accountable. We inspire others through our actions and optimism. We choose to lead, even without a title, to work toward infecting others with optimism in their ability to succeed.</p>
 
