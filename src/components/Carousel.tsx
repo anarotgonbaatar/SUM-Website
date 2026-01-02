@@ -102,7 +102,6 @@ export default function Carousel({ images, className = "", containerClassName = 
 					snap-x snap-mandatory
 					scroll-smooth
 					max-w-min
-					px-[3rem]!
 					[-webkit-overflow-scrolling:touch]
 					[scrollbar-width:none]
 					${className} ${containerClassName}
@@ -115,7 +114,7 @@ export default function Carousel({ images, className = "", containerClassName = 
 						ref={(el) => { itemRefs.current[i] = el }}
 						className={`
 							snap-center shrink-0
-							w-[15rem]
+							w-[15rem] max-w-full
 							${itemClassName}
 						`}
 					>

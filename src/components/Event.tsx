@@ -4,6 +4,7 @@ export default function Event({
 	location = "TBD",
 	month = "TBD",
 	day = "TBD",
+	weekday = "TBD",
 	time = "TBD",
 } : {
 	title: string
@@ -11,6 +12,7 @@ export default function Event({
 	location: string
 	month: string
 	day: string
+	weekday: string
 	time: string
 }) {
 	return (
@@ -22,9 +24,10 @@ export default function Event({
 			"
 		>
 			{/* Date */}
-			<div className="flex flex-col bg-gradient-to-t from-black to-black/75 p-[1rem]! min-w-[8rem] max-w-[8rem] text-shadow-[0_0_1rem_var(--gold)]">
-				<span>{month}</span>
+			<div className="flex flex-col justify-center bg-gradient-to-t from-black to-black/75 p-[1rem]! min-w-[8rem] max-w-[8rem] text-shadow-[0_0_1rem_var(--gold)]">
+				<span className="font-bold!">{month}</span>
 				<span className="text-[3rem]!">{day}</span>
+				<span>{weekday}</span>
 			</div>
 			{/* Details */}
 			<div className="flex flex-col text-start p-[0.5rem]! text-black w-full">
@@ -32,7 +35,7 @@ export default function Event({
 				<p>{description}</p>
 				<span>Location: {location} @ {time}</span>
 				<button
-					className="btn text-white ml-auto!"
+					className="btn text-white ml-auto! mt-auto!"
 					type="button"
 				>
 					RSVP

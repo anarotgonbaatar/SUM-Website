@@ -64,8 +64,6 @@ export default function Pillar({
 			{/* Collapsible content */}
 			{expanded && (
 				<>
-					
-
 					<p className="text-[0.9rem]!">{description}</p>
 
 					{custom}
