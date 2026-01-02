@@ -13,11 +13,11 @@ export default function App() {
 		<>
 			<Nav />
 			<Home />
+			<About />
 			<ABLE />
 			<Journey />
 			<Alumni />
 			<Events />
-			<About />
 			<Join />
 			<Footer/>
 		</>
