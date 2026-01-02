@@ -46,7 +46,7 @@ export default function ABLE() {
 					description='We acknowledge our progress toward our goals and measure our personal growth. We celebrate our large accomplishments, as well as our small milestones. We do this all while maintaining focus and optimism in the face of adversity.'
 					custom={
 						<>
-							<div className='flex flex-col gap-[0.5rem] bg-gradient-to-b from-black/10 to-black/30 rounded-(--radius) py-[0.5rem]!'>
+							<div className='flex flex-col gap-[0.5rem] bg-gradient-to-b from-black/10 to-black/30 rounded-(--radius) p-[0.5rem]!'>
 								<h3>What We've <span className='text-(--gold)'>Built</span></h3>
 								<img src={WeBuilt} alt="Our Startups" className="mix-blend-screen" />
 								<div className='flex flex-col'>
@@ -54,7 +54,7 @@ export default function ABLE() {
 									<span>Over $1 billion in venture capital raised.</span>
 								</div>
 							</div>
-							<div className='flex flex-col gap-[0.5rem] bg-gradient-to-b from-black/10 to-black/30 rounded-(--radius) py-[0.5rem]!'>
+							<div className='flex flex-col gap-[0.5rem] bg-gradient-to-b from-black/10 to-black/30 rounded-(--radius) p-[0.5rem]!'>
 								<h3>Where We've <span className='text-(--gold)'>Been</span></h3>
 								<img src={WeWent} alt="Our Employers" className="mix-blend-screen" />
 								<span>1 out of every 3 SUM members work at a Fortune 500 or a funded startup.</span>
