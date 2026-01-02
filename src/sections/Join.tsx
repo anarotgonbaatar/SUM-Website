@@ -1,5 +1,6 @@
 import ContactForm from '../components/ContactForm'
 import SectionHeader from '../components/SectionHeader'
+import ExtLinkIcons from "../components/ExtLinkIcons"
 
 export default function Join() {
 	return (
@@ -15,6 +16,8 @@ export default function Join() {
 				<span className="text-(--gold)">SUM</span>
 				<span>one.</span>
 			</h2>
+
+			<ExtLinkIcons/>
 
 			<ContactForm/>
 			

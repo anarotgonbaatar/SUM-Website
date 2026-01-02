@@ -1,6 +1,7 @@
 import Phoenix from "../assets/logos/phoenix-white.png"
 import SUM from "../assets/logos/sum-white.png"
 import ActionButtons from "../components/ActionButtons"
+import ExtLinkIcons from "../components/ExtLinkIcons"
 
 export default function Home() {
 	return (
@@ -24,6 +25,9 @@ export default function Home() {
 				button="SUM Merch"
 				link="https://sumclothing.com/"
 			/>
+			
+			<ExtLinkIcons/>
+
 		</section>
 	)
 }

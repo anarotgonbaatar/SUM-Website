@@ -6,7 +6,6 @@ export default function BoardImage({
 	image: string
 	fullName: string
 	position: string
-
 }) {
 	
 	return (
