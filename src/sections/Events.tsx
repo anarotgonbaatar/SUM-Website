@@ -1,4 +1,3 @@
-import { time } from 'node:console'
 import Event from '../components/Event'
 import SectionHeader from '../components/SectionHeader'
 
