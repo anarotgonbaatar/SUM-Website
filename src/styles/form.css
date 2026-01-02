@@ -8,6 +8,7 @@ form {
 	display: flex; flex-direction: column;
 	align-items: start; justify-content: center;
 	gap: 0.25rem;
+	width: 100%;
 }
 
 label {
@@ -23,6 +24,11 @@ input, select, textarea {
 input:focus, select:focus, textarea:focus {
 	border: 1px solid var(--gold);
 	box-shadow: inset var(--glow-gold);
+}
+
+select option,
+select optgroup {
+	background-color: var(--crimson);
 }
 
 textarea {

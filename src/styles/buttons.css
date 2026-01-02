@@ -4,7 +4,6 @@
 	color: black;
 }
 .cta:hover {
-	transform: scale(1.05);
 	background-image: linear-gradient(to bottom, rgba(255, 185, 35, 1), rgba(255, 185, 35, 1)) !important;
 	box-shadow: var(--glow-gold) !important;
 }
@@ -20,7 +19,6 @@
 	font-family: 'Georgia', serif;
 }
 .btn:hover {
-	transform: scale(1.05);
 	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 1));
 	box-shadow: var(--shadow);
 }

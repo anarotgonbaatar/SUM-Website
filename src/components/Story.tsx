@@ -19,7 +19,7 @@ export default function Story({
 					<img src={image} alt="" />
 					<span>{fullName}</span>
 				</div>
-				<p className="text-(--crimson-dark)">"{quote}"</p>
+				<p className="text-(--crimson-dark) text-[0.9rem]!">"{quote}"</p>
 			</div>
 			<ul className="text-left">
 				{achievements.map((item, i) => (

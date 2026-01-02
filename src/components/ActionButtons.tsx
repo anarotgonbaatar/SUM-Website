@@ -1,9 +1,11 @@
 export default function ActionButtons({
+	button = "Learn More: ",
 	sectionName = "",
 	link = "",
 } : {
-	sectionName: string
-	link: string
+	button?: string
+	sectionName?: string
+	link?: string
 }) {
 	const handleNav = (id: string) => {
 		if (window.location.pathname !== "/") {
@@ -16,6 +18,24 @@ export default function ActionButtons({
 			section.scrollIntoView({ behavior: "smooth"})
 		}
 	}
+
+	const handleLinkClick = () => {
+		if (!link) return
+
+		// hash navigation: "#join-section" or "join-section"
+		if (link.startsWith("#")) {
+			handleNav(link.slice(1))
+			return
+		}
+		if (!link.includes("://") && !link.startsWith("/")) {
+			// treat as section id
+			handleNav(link)
+			return
+		}
+
+		// internal route "/events" or external "https://..."
+		window.location.href = link
+	}
 	
 	return (
 		<div className="flex gap-[1rem]">
@@ -27,8 +47,10 @@ export default function ActionButtons({
 			</button>
 			<button 
 				className="btn"
+				onClick={handleLinkClick}
+				disabled={!link}
 			>
-				Learn More: {sectionName}
+				{button} {sectionName}
 			</button>
 		</div>
 	)

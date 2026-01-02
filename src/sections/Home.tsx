@@ -1,5 +1,6 @@
 import Phoenix from "../assets/logos/phoenix-white.png"
 import SUM from "../assets/logos/sum-white.png"
+import ActionButtons from "../components/ActionButtons"
 
 export default function Home() {
 	return (
@@ -19,10 +20,10 @@ export default function Home() {
 			<h2>Achievement. Brotherhood. Leadership. Entrepreneurship.</h2>
 			<p>We build high-achievers through real projects, real standards, and real community.</p>
 
-			<div className="flex gap-[1rem]">
-				<button className="cta btn">Join SUM</button>
-				<button className="btn">SUM Merch</button>
-			</div>
+			<ActionButtons
+				button="SUM Merch"
+				link="https://sumclothing.com/"
+			/>
 		</section>
 	)
 }
