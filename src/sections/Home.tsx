@@ -23,7 +23,7 @@ export default function Home() {
 
 			<ActionButtons
 				button="SUM Merch"
-				link="https://sumclothing.com/"
+				link="https://sigma-upsilon-mu.printify.me/"
 			/>
 			
 			<ExtLinkIcons/>

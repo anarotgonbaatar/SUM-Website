@@ -79,7 +79,7 @@ a:hover {
 	color: var(--gold);
 }
 
-.nav-comp{
+.nav-comp {
 	align-items: center; justify-content: space-between;
 	flex-direction: row;
 	max-width: 100%;
@@ -87,4 +87,13 @@ a:hover {
 	padding: 0.5rem 0.75rem;
 	border-radius: 1rem;
 	box-shadow: var(--shadow);
+}
+
+.glass-card {
+	display: flex; flex-direction: column;
+	justify-content: center; align-items: center;
+	gap: 1rem; padding: 1rem;
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.4));
+	border-radius: 1rem; box-shadow: var(--shadow);
+	width: 100%; max-width: 30rem;
 }
